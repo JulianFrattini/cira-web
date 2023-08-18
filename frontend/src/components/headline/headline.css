@@ -1,0 +1,23 @@
+.logo {
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+}
+
+header {
+    padding-bottom: 10px;
+}
+
+header>*>h1 {
+    padding: 0 40px 0 0;
+}
+
+.headline {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.headline>h1 {
+    flex-grow: 1;
+}
