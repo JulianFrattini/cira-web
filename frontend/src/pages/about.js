@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
     return (
         <div>
-            <h1>About the CiRA initiative</h1>
+            <h2>About the CiRA initiative</h2>
         </div>
     );
 };

@@ -4,18 +4,18 @@ import './navbar.css'
 
 const Navbar = () => {
     return (
-        <div class="nav">
-            <div class="navmenu">
-                <a class="navlink" href="/" activeStyle>
+        <div className="nav">
+            <div className="navmenu">
+                <a className="navlink" href="/" activestyle="true">
                     Home
                 </a>
-                <a class="navlink" href="/about" activeStyle>
+                <a className="navlink" href="/about" activestyle="true">
                     About
                 </a>
-                <a class="navlink" href="/demo" activeStyle>
+                <a className="navlink" href="/demo" activestyle="true">
                     Demonstration
                 </a>
-                <a class="navlink" href="/references" activeStyle>
+                <a className="navlink" href="/references" activestyle="true">
                     References
                 </a>
             </div>
