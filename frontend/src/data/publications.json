@@ -1,0 +1,83 @@
+[
+    {
+        "index": 1,
+        "label": "Fischbach, J., Hauptmann, B., Konwitschny, L., Spies, D., & Vogelsang, A. (2020, August). Towards Causality Extraction from Requirements. In 2020 IEEE 28th International Requirements Engineering Conference (RE) (pp. 388-393). IEEE.",
+        "link": "https://ieeexplore.ieee.org/abstract/document/9218193",
+        "data": "https://figshare.com/s/725309c06b9dc82aa4a1"
+    }, {
+        "index": 2,
+        "label": "Fischbach, J., Junker, M., Vogelsang, A., & Freudenstein, D. (2019, September). Automated Generation of Test Models from Semi-Structured Requirements. In 2019 IEEE 27th International Requirements Engineering Conference Workshops (REW) (pp. 263-269). IEEE.",
+        "link": "https://ieeexplore.ieee.org/abstract/document/8933802",
+        "repo": "https://github.com/fischJan/Automated_CEG_Creation"
+    }, {
+        "index": 3,
+        "label": "Fischbach, J., Vogelsang, A., Spies, D., Wehrle, A., Junker, M., & Freudenstein, D. (2020, October). Specmate: Automated creation of test cases from acceptance criteria. In 2020 IEEE 13th International Conference on Software Testing, Validation and Verification (ICST) (pp. 321-331). IEEE.",
+        "link": "https://ieeexplore.ieee.org/abstract/document/9159056"
+    }, {
+        "index": 4,
+        "label": "Frattini, J., Junker, M., Unterkalmsteiner, M., & Mendez, D. (2020, December). Automatic extraction of cause-effect-relations from requirements artifacts. In Proceedings of the 35th IEEE/ACM International Conference on Automated Software Engineering (pp. 561-572).",
+        "link": "https://doi.org/10.1145/3324884.3416549",
+        "data": "https://doi.org/10.5281/zenodo.4009160",
+        "repo": "https://doi.org/10.5281/zenodo.4009160"
+    }, {
+        "index": 5,
+        "label": "Frattini, J. (2020, September). CEREC: Causality Extraction from Requirements Artifacts. In 2020 IEEE Seventh International Workshop on Artificial Intelligence for Requirements Engineering (AIRE) (pp. 79-82). IEEE.",
+        "link": "https://ieeexplore.ieee.org/abstract/document/9233006?casa_token=hpVz2YjEwjcAAAAA:jyWwRdKe5GV5gx8G43tu9Uq0rdgtuNZiWjGc1olK1wOQ0ew-mmf6uC90HjM3t8WQ_PRSQUGUiA"
+    }, {
+        "index": 6,
+        "label": "Fischbach, J., Frattini, J., Spaans, A., Kummeth, M., Vogelsang, A., Mendez, D., Unterkalmsteiner, M. 'Automatic Detection of Causality in Requirement Artifacts: The CiRA Approach.' Requirements Engineering: Foundation for Software Quality: 27th International Working Conference, REFSQ 2021, Essen, Germany, April 12–15, 2021, Proceedings. Springer Nature.",
+        "repo": "https://github.com/fischJan/CiRA",
+        "data": "https://github.com/fischJan/CiRA/tree/main/annotated%20data%20sets",
+        "link": "https://arxiv.org/abs/2101.10766",
+        "demo": "http://www.cira.bth.se/classifier",
+        "main": true
+    }, {
+        "index": 7,
+        "label": "Fischbach, J., Frattini, J., Vogelsang, A. CiRA: A Tool for the Automatic Detection of Causal Relationships in Requirements Artifacts. In Joint Proceedings of REFSQ-2021 Workshops, OpenRE, Posters and Tools Track, and Doctoral Symposium, Essen, Germany,12-04-2021",
+        "link": "https://arxiv.org/abs/2103.06768"
+    }, {
+        "index": 8,
+        "label": "Fischbach, J., Frattini, J., Mendez, D., Unterkalmsteiner, M., Femmer, H., & Vogelsang, A. (2021, November). How Do Practitioners Interpret Conditionals in Requirements?. In International Conference on Product-Focused Software Process Improvement (pp. 85-102). Springer, Cham.",
+        "link": "https://arxiv.org/abs/2109.02063",
+        "main": true
+    }, {
+        "index": 9,
+        "label": "Restrepo Henao, P., Fischbach, J., Spies, D., Frattini, J., & Vogelsang, A. (2021). Transfer Learning for Mining Feature Requests and Bug Reports from Tweets and App Store Reviews. arXiv e-prints, arXiv-2108.",
+        "link": "https://arxiv.org/abs/2108.00663",
+        "repo": "https://github.com/prestrepoh/Topic-Mining-From-Tweets-and-App-Reviews",
+        "demo": "https://colab.research.google.com/drive/1y5gsiFEWtQrsXy7uyu-KUPq_xWJnRSH2?usp=sharing"
+
+    }, {
+        "index": 10,
+        "label": "Jadallah, N., Fischbach, J., Frattini, J., & Vogelsang, A. (2021, September). CATE: CAusality Tree Extractor from Natural Language Requirements. In 2021 IEEE 29th International Requirements Engineering Conference Workshops (REW) (pp. 77-79). IEEE.",
+        "link": "https://arxiv.org/abs/2107.10023",
+        "data": "https://github.com/corona-warn-app/cwa-documentation/blob/master/scoping_document.md.",
+        "demo": "https://causalitytreeextractor.com/"
+    }, {
+        "index": 11,
+        "label": "Fischbach, J., Springer, T., Frattini, J., Femmer, H., Vogelsang, A., & Mendez, D. (2021, September). Fine-grained causality extraction from natural language requirements using recursive neural tensor networks. In 2021 IEEE 29th International Requirements Engineering Conference Workshops (REW) (pp. 60-69). IEEE.",
+        "repo": "tps://github.com/springto/Fine-Grained-Causality-Extraction-From-NL-Requirements",
+        "link": "https://arxiv.org/abs/2107.09980"
+    }, {
+        "index": 12,
+        "label": "Frattini, J., Fischbach, J., Mendez, D. et al. Causality in requirements artifacts: prevalence, detection, and impact. Requirements Eng (2022). https://doi.org/10.1007/s00766-022-00371-x",
+        "link": "https://doi.org/10.1007/s00766-022-00371-x",
+        "repo": "https://github.com/fischJan/CiRA",
+        "data": "https://github.com/fischJan/CiRA/tree/main/annotated%20data%20sets",
+        "demo": "http://www.cira.bth.se/classifier",
+        "main": true
+    }, {
+        "index": 13,
+        "label": "Fischbach, J., Frattini, J., Vogelsang, A., Mendez, D., Unterkalmsteiner, M., Wehrle, A., ... & Wiecher, C. (2023). Automatic creation of acceptance tests by extracting conditionals from requirements: NLP approach and case study. Journal of Systems and Software, 197, 111549.",
+        "link": "https://arxiv.org/abs/2202.00932",
+        "demo": "http://www.cira.bth.se/extractor",
+        "repo": "https://doi.org/10.5281/zenodo.5550387",
+        "data": "https://doi.org/10.5281/zenodo.5550387",
+        "main": true
+    }, {
+        "index": 14,
+        "label": "Frattini, J., Fischbach, J., & Bauer, A. (2023, September). CiRA: An  Open-Source Python Package for Automated Generation of Test Case Descriptions from Natural Language Requirements. In 2023 IEEE Tenth International Workshop on Artificial Intelligence for Requirements Engineering (AIRE). IEEE.",
+        "demo": "http://www.cira.bth.se/extractor",
+        "repo": "https://zenodo.org/record/8033347"
+    }
+]
