@@ -5,7 +5,8 @@ import './headline.css'
 const Headline = () => {
     return (
         <div class="headline">
-            <h1>Causality in Requirements Artifacts (CiRA)</h1>
+            <h1 class="largescreen">Causality in Requirements Artifacts (CiRA)</h1>
+            <h1 class="smallscreen">CiRA</h1>
             <a href="https://cs.uni-koeln.de/" target="_blank" rel="noreferrer">
                 <img class="logo" src="images/logos/uni_cologne.jpg" alt="University of Cologne Logo"/>
             </a>

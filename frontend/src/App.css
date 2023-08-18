@@ -8,7 +8,7 @@ body {
   color: rgb(49, 46, 46);
   background: white;
   margin: 0 auto;
-  padding: 50px 20px ;
+  padding: 50px 20px;
   text-align: center;
 }
 
@@ -17,5 +17,23 @@ body {
   body {
     max-width: 1000px;
     text-align: left;
+  }
+
+  .smallscreen {
+    display: none;
+  }
+
+  .largescreen {
+    display: inherit;
+  }
+}
+
+@media (max-width: 799px) {
+  .smallscreen {
+    display: inherit;
+  }
+
+  .largescreen {
+    display: none;
   }
 }

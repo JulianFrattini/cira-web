@@ -1,0 +1,27 @@
+.nav {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navmenu {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+.navlink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 8px;
+    height: 100%;
+    cursor: pointer;
+
+    &.active {
+        color: #4d4dff;
+    }
+}
