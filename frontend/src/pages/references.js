@@ -7,7 +7,7 @@ const References = () => {
     return (
         <div>
             <h2>Content and Links</h2>
-            <p>Browse through the list of published papers associated with the CiRA project. For each publication we link the corresponding paper (<span><i className="fa fa-file" title="Publication"></i></span>), published code (<span><i className="fab fa-github" title="Source Code"></i></span>), data sets (<span><i className="fa fa-database" title="Data Set"></i></span>), and accessible demos (<span><i className="fa fa-gamepad" title="Demonstration"></i></span>).</p>
+            <p>Browse through the list of published papers associated with the CiRA project. For each publication we link the corresponding paper (<span><i className="fa fa-file" title="Publication"></i></span>), published code (<span><i className="fab fa-github" title="Source Code"></i></span>), data sets (<span><i className="fa fa-database" title="Data Set"></i></span>), and accessible demos (<span><i className="fa fa-gamepad" title="Demonstration"></i></span>). Major contributions are <span className='tcol_highlight'><b>highlighted</b></span>.</p>
 
             <table className="t_span">
                 <thead>
@@ -23,9 +23,9 @@ const References = () => {
                 <tbody>
                     {
                         publications.map(pub =>
-                            <tr key={pub.index}>
+                            <tr key={pub.index} className={pub.main ? 'tcol_highlight' : ''}>
                                 <td>{pub.index}</td>
-                                <td>{pub.label}</td>
+                                <td>{pub.main ? <b>{pub.label}</b> : pub.label}</td>
                                 <td>{pub.link ? <a href={pub.link} target="_blank" rel="noreferrer"><i className="fa fa-file" /></a> : ""}</td>
                                 <td>{pub.repo ? <a href={pub.repo} target="_blank" rel="noreferrer"><i className="fab fa-github" /></a> : ""}</td>
                                 <td>{pub.data ? <a href={pub.data} target="_blank" rel="noreferrer"><i className="fa fa-database" /></a> : ""}</td>
