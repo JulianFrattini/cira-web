@@ -62,6 +62,8 @@ const Home = () => {
                 }
             </div>
             
+            <h2>References</h2>
+            <p>Find our full publication record listing all published articles related to the CiRA initiative <a href='/references'>here</a>.</p>
 
             <h2>Funding</h2>
             <p>We would like to thank the KKS foundation through the S.E.R.T. Research Profile project at Blekinge Institute of Technology for funding this project.</p>
