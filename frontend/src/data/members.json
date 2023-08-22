@@ -1,0 +1,87 @@
+[
+    {
+        "id": "jfb",
+        "name": "Jannik Fischbach",
+        "role": "Main Contributor",
+        "desc": "Jannik works as a software consultant at Qualicen GmbH and started his PhD studies at the University of Cologne in 2019. His research focuses on modern Natural Language Processing techniques and their potential to support stakeholders in agile testing process. He has already published at several top venues (e.g. ICST, ESEM) and won the Best Industry Paper Award at ESEM in 2020. ",
+        "links": [
+            {
+                "type": "scholar",
+                "url": "https://scholar.google.de/citations?user=nI4Ia_IAAAAJ&hl=de&oi=ao"
+            }, {
+                "type": "twitter",
+                "url": "https://twitter.com/JannikFischbach"
+            }, {
+                "type": "github",
+                "url": "https://github.com/fischJan/"
+            }
+        ]
+    }, 
+    {
+        "id": "jfr",
+        "name": "Julian Frattini",
+        "role": "Main Contributor",
+        "desc": "Julian Frattini is a PhD student at the Blekinge Institute of Technology, Sweden, under the supervision of Daniel Mendez. His research revolves around the notion of 'good-enough requirements engineering', which incorporates exploring the potential of causality in requirement artifacts for quality emendations.",
+        "links": [
+            {
+                "type": "scholar",
+                "url": "https://scholar.google.de/citations?user=wsw2NTMAAAAJ&hl=de&oi=ao"
+            }, {
+                "type": "twitter",
+                "url": "https://twitter.com/frattinij1"
+            }, {
+                "type": "github",
+                "url": "https://github.com/JulianFrattini"
+            }
+        ]
+    },
+    {
+        "id": "avo",
+        "name": "Andreas Vogelsang",
+        "role": "Supervisor",
+        "desc": "Andreas Vogelsang is professor for Software Engineering at the Institute of Computer Science at the University of Cologne. His research interests include Requirements Engineering, Model-based Systems Engineering and Data-driven Systems Engineering. In 2018, he was appointed Junior Fellow of the German Informatics Society (GI) and in 2019 he was named 'Young Scientist of the Year' by academics and the DHV.",
+        "links": [
+            {
+                "type": "scholar",
+                "url": "https://scholar.google.de/citations?user=knNRUtEAAAAJ&hl=de&oi=ao"
+            }, {
+                "type": "twitter",
+                "url": "https://twitter.com/andivogelsang"
+            }
+        ]
+    },
+    {
+        "id": "dmz",
+        "name": "Daniel Mendez",
+        "role": "Supervisor",
+        "desc": "Daniel Mendez is Professor for Software Engineering at the Blekinge Institute of Technology, Sweden, and Senior Scientist heading the research division Requirements Engineering at fortiss, the research institute of the Free State of Bavaria for software-intensive systems and services.",
+        "links": [
+            {
+                "type": "twitter",
+                "url": "https://twitter.com/mendezfe"
+            }, {
+                "type": "home",
+                "url": "http://www.mendezfe.org/"
+            }
+        ]
+    },
+    {
+        "id": "mun",
+        "name": "Michael Unterkalmsteiner",
+        "role": "Supervisor",
+        "desc": "Michael Unterkalmsteiner has been researching Software Engineering since 2009, focusing in particular on the coordination between requirements engineering and software testing. His research work with many industry partners is shaped by empirical problem identification, in-depth analysis of the state-of-art and practice, and collaborative solution development. ",
+        "links": [
+            {
+                "type": "home",
+                "url": "https://lmsteiner.com/"
+            },
+            {
+                "type": "scholar",
+                "url": "https://scholar.google.de/citations?user=c4a2z1AAAAAJ&hl=de&oi=ao"
+            }, {
+                "type": "twitter",
+                "url": "https://twitter.com/Michaton"
+            }
+        ]
+    }
+]

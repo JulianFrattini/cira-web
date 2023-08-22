@@ -7,7 +7,7 @@ import Navbar from './components/navbar';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages';
-import About from './pages/about';
+//import About from './pages/about';
 import Demo from './pages/demo';
 import References from './pages/references';
 
@@ -19,7 +19,6 @@ function App() {
             <Router>
                 <Routes>
                     <Route exact path='/' element={<Home />} />
-                    <Route path='/about' element={<About />} />
                     <Route path='/demo' element={<Demo />} />
                     <Route path='/references' element={<References />} />
                 </Routes>

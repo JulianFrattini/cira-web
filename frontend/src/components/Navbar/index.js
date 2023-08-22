@@ -9,9 +9,6 @@ const Navbar = () => {
                 <a className="navlink" href="/" activestyle="true">
                     Home
                 </a>
-                <a className="navlink" href="/about" activestyle="true">
-                    About
-                </a>
                 <a className="navlink" href="/demo" activestyle="true">
                     Demonstration
                 </a>
