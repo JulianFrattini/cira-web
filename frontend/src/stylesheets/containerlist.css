@@ -1,4 +1,4 @@
-/* Members block */ 
+/* Members block */
 .container {
     display: flex;
     flex-flow: row wrap;
@@ -19,7 +19,7 @@
 .member {
     display: flex;
     flex-flow: column nowrap;
-    text-align: center; 
+    text-align: center;
     align-items: center;
 }
 
@@ -54,6 +54,11 @@
     margin: 10px;
     padding: 5px;
     text-align: center;
+}
+
+.highlightable:hover {
+    box-shadow: 0 0 15px 5px rgba(105, 105, 105, 0.6);
+    transition: 0.3s;
 }
 
 /* MEDIA QUERIES */

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../stylesheets/containerlist.css'
+import members from './../data/members.json'
 
 const Home = () => {
     return (
@@ -32,6 +33,34 @@ const Home = () => {
                 </div>
             </div>
 
+            <h2>Team</h2>
+            <p>The CiRA initiative is carried out by the following researchers:</p>
+            <div className='container'>
+                {
+                    members.map(member => 
+                        <div className='member element'>
+                            <img className='profile highlightable' alt={'Icon of '+member.name} src={'images/members/'+member.id+'.png'}></img>
+                            <h3>{member.name}</h3>
+                            <p className='role'>{member.role}</p>
+                            <p>{member.desc}</p>
+                            <div className='linklist'>
+                                {member.links.map(link => 
+                                    <a href={link.url} target="_blank" rel="noreferrer">
+                                        {
+                                            {
+                                                'scholar': <i className='linkitem fa fa-graduation-cap' title='Google Scholar Profile'></i>,
+                                                'twitter': <i className='linkitem fab fa-twitter' title='Twitter Profile'></i>,
+                                                'home': <i className='linkitem fa fa-home' title='Homepage'></i>,
+                                                'github': <i className='linkitem fab fa-github' title='GitHub Profile'></i>
+                                            }[link.type]
+                                        }
+                                    </a>
+                                )}
+                            </div>
+                        </div>)
+                }
+            </div>
+            
 
             <h2>Funding</h2>
             <p>We would like to thank the KKS foundation through the S.E.R.T. Research Profile project at Blekinge Institute of Technology for funding this project.</p>
