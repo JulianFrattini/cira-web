@@ -51,7 +51,8 @@ const Home = () => {
                                                 'scholar': <i className='linkitem fa fa-graduation-cap' title='Google Scholar Profile'></i>,
                                                 'twitter': <i className='linkitem fab fa-twitter' title='Twitter Profile'></i>,
                                                 'home': <i className='linkitem fa fa-home' title='Homepage'></i>,
-                                                'github': <i className='linkitem fab fa-github' title='GitHub Profile'></i>
+                                                'github': <i className='linkitem fab fa-github' title='GitHub Profile'></i>,
+                                                'orcid': <i className='linkitem fab fa-orcid' title='ORCID Profile'></i>
                                             }[link.type]
                                         }
                                     </a>
