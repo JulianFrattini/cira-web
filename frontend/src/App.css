@@ -1,3 +1,18 @@
+:root {
+  --bg: #242526;
+  --bg-accent: #484a4d;
+  --bg-good: #b4e61d;
+  --bg-bad: #ed1c23;
+  --bg-disabled: #c0c0c0;
+
+  --text-color: #dadce1;
+  --text-color-dark: #242526;
+  --nav-size: 60px;
+  --border: 1ps solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
+
 html {
   background: #f7f7f7;
 }

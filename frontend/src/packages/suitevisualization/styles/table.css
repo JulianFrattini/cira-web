@@ -1,11 +1,20 @@
+/* Table listing items */
 table {
     text-align: left;
     margin: 20px 0;
 }
 
-thead>tr>td {
+thead>tr>th {
     background: rgb(231, 231, 231);
     font-weight: bold;
+}
+
+.th_input {
+    background: #d46371;
+}
+
+.th_output {
+    background: #7fa2ff;
 }
 
 .t_span {
@@ -27,7 +36,7 @@ th, td {
 }
 
 .tcol_highlight {
-    background-color: rgba(189, 90, 255, 0.15)
+    background-color: rgba(0, 225, 255, 0.1)
 }
 
 tbody>tr:hover {
