@@ -13,13 +13,18 @@ function Core() {
     const [fieldSentence, setFieldSentence] = useState("When the red button is pushed or the power fails the system shuts down.")
 
     const [analyzing, setAnalyzing] = useState(false)
+    const [classifying, setClassifying] = useState(false)
 
     const [sentence, setSentence] = useState("")
+
+    const [classification, setClassification] = useState(null)
+    const [confidence, setConfidence] = useState(0.0)
+
     const [labels, setLabels] = useState([])
     const [ceg, setCeg] = useState(null)
     const [suite, setSuite] = useState(null)
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (sentence) {
             fetch('http://localhost:8000/api/label', {
                 method: 'PUT',
@@ -57,7 +62,7 @@ function Core() {
                     console.error(error)
                 });
         }
-    }, [sentence]);
+    }, [sentence]);*/
 
     // heartbeat
     useEffect(() => {
@@ -84,14 +89,42 @@ function Core() {
         setSentence(fieldSentence)
     }
 
+    const classify = (e) => {
+        e.preventDefault();
+        setClassifying(true);
+        setClassification(null);
+        setSentence(fieldSentence);
+    }
+
+    useEffect(() => {
+        if(!sentence) {
+            return;
+        }
+
+        fetch('http://localhost:8000/api/classify', {
+            method: 'PUT',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ "sentence": sentence })
+        }).then(res => res.json())
+            .then(classification => {
+                setClassification(classification.causal);
+                setConfidence(classification.confidence);
+                setClassifying(false)
+            })
+    }, [classifying])
+
     return (
         <div className="core">
             <h2>Step 1: Classification</h2>
             <p>Enter a causal requirements and click 'analyze' to let CiRA automatically determine, whether the requirement is causal and hence eligible for further processing. You can find more details on the classifier in <a href='https://arxiv.org/abs/2101.10766' target="_blank" rel="noreferrer">our corresponding paper</a>.</p>
-            <form className='submit-form' onSubmit={(e) => analyze(e)}>
+            <form className='submit-form' onSubmit={(e) => classify(e)}>
                 <input type='text' id='sentence' onChange={e => setFieldSentence(e.target.value)} value={fieldSentence} autoFocus></input>
                 <input type="submit" value='Classify' disabled={!serverResponding}></input>
             </form>
+            {!classifying && classification!=null &&
+                <p>CiRA has determined that sentence is {classification ? 'causal' : 'non-causal'} with a confidence of {(confidence*100).toFixed(2)}%.</p>
+            }
+
             {!analyzing && labels.length > 0 &&
                 <div>
                     <h2>Step 2: Labeling</h2>
