@@ -1,0 +1,94 @@
+{
+    "title": "Three causes (conjunction + disjunction), two effects",
+    "text": "If var1 is present and var2 is active or var3 is triggered then var4 will be caused and var5 will not be caused.",
+    "classification": {
+        "causal": true,
+        "confidence": 0.9
+    },
+    "labels": [
+        {"id": "T1", "label": "Keyword", "begin": 0, "end": 2},
+
+        {"id": "T2", "label": "Cause1", "begin": 3, "end": 18},
+        {"id": "T3", "label": "Variable", "begin": 3, "end": 7},
+        {"id": "T4", "label": "Condition", "begin": 8, "end": 18},
+
+        {"id": "T5", "label": "Conjunction", "begin": 19, "end": 22},
+        
+        {"id": "T6", "label": "Cause2", "begin": 23, "end": 37},
+        {"id": "T7", "label": "Variable", "begin": 23, "end": 27},
+        {"id": "T8", "label": "Condition", "begin": 28, "end": 37},
+        
+        {"id": "T9", "label": "Disjunction", "begin": 38, "end": 40},
+
+        {"id": "T10", "label": "Cause3", "begin": 41, "end": 58},
+        {"id": "T11", "label": "Variable", "begin": 41, "end": 45},
+        {"id": "T12", "label": "Condition", "begin": 46, "end": 58},
+        
+        {"id": "T13", "label": "Keyword", "begin": 59, "end": 63},
+
+        {"id": "T14", "label": "Effect1", "begin": 64, "end": 83},
+        {"id": "T15", "label": "Variable", "begin": 64, "end": 68},
+        {"id": "T16", "label": "Condition", "begin": 69, "end": 83},
+
+        {"id": "T17", "label": "Conjunction", "begin": 84, "end": 87},
+
+        {"id": "T18", "label": "Effect2", "begin": 88, "end": 111},
+        {"id": "T19", "label": "Variable", "begin": 88, "end": 92},
+        {"id": "T20", "label": "Negation", "begin": 93, "end": 101},
+        {"id": "T21", "label": "Condition", "begin": 102, "end": 111}
+    ],
+    "graph": {
+        "desc": "In a case, where three causes are connected by both conjunctions and disjunctions, they are interpreted as logical ANDs and ORs, where the logical AND has a higher precedence than the logical OR. Hence, the logical AND is binding stronger.",
+        "nodes": [
+            {"id": 1, "variable": "var1", "condition": "is present"},
+            {"id": 2, "variable": "var2", "condition": "is active"},
+            {"id": 3, "variable": "", "condition": "", "type": "AND"},
+            {"id": 4, "variable": "var3", "condition": "is triggered"},
+            {"id": 5, "variable": "", "condition": "", "type": "OR"},
+            {"id": 6, "variable": "var4", "condition": "will be caused"},
+            {"id": 7, "variable": "var5", "condition": "be caused"}
+        ],
+        "edges": [
+            {"source": 1, "target": 3, "negate": false},
+            {"source": 2, "target": 3, "negate": false},
+            {"source": 3, "target": 5, "negate": false},
+            {"source": 4, "target": 5, "negate": false},
+            {"source": 5, "target": 6, "negate": false},
+            {"source": 5, "target": 7, "negate": true}
+        ]
+    },
+    "testsuite": {
+        "inputparams": [
+            {"id": 1, "text": "var1"},
+            {"id": 2, "text": "var2"},
+            {"id": 3, "text": "var3"}
+        ],
+        "outputparams": [
+            {"id": 4, "text": "var4"},
+            {"id": 5, "text": "var5"}
+        ],
+        "testcases": [
+            {
+                "id": 1, 
+                "configurations": [{"inputid": 1, "text": "is present"}, {"inputid": 2, "text": "is active"}, {"inputid": 3, "text": "not is triggered"}],
+                "outcome": [{"outputid": 4, "text": "will be caused"}, {"outputid": 5, "text": "not be caused"}]
+            }, {
+                "id": 2, 
+                "configurations": [{"inputid": 1, "text": "not is present"}, {"inputid": 2, "text": "is active"}, {"inputid": 3, "text": "is triggered"}],
+                "outcome": [{"outputid": 4, "text": "will be caused"}, {"outputid": 5, "text": "not be caused"}]
+            }, {
+                "id": 3, 
+                "configurations": [{"inputid": 1, "text": "is present"}, {"inputid": 2, "text": "not is active"}, {"inputid": 3, "text": "is triggered"}],
+                "outcome": [{"outputid": 4, "text": "will be caused"}, {"outputid": 5, "text": "not be caused"}]
+            }, {
+                "id": 4, 
+                "configurations": [{"inputid": 1, "text": "not is present"}, {"inputid": 2, "text": "is active"}, {"inputid": 3, "text": "not is triggered"}],
+                "outcome": [{"outputid": 4, "text": "not will be caused"}, {"outputid": 5, "text": "be caused"}]
+            }, {
+                "id": 5, 
+                "configurations": [{"inputid": 1, "text": "is present"}, {"inputid": 2, "text": "not is active"}, {"inputid": 3, "text": "not is triggered"}],
+                "outcome": [{"outputid": 4, "text": "not will be caused"}, {"outputid": 5, "text": "be caused"}]
+            }
+        ]
+    }
+}

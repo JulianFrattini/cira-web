@@ -12,6 +12,9 @@ const Navbar = () => {
                 <a className="navlink" href="/demo" activestyle="true">
                     Demonstration
                 </a>
+                <a className="navlink" href="/examples" activestyle="true">
+                    Examples
+                </a>
                 <a className="navlink" href="/references" activestyle="true">
                     References
                 </a>

@@ -1,0 +1,86 @@
+{    
+    "title": "Three conjunctive causes, two effects",
+    "text": "If the user is over 18 years old, the door is currently not blocked, and no defect could be detected, then the door opens and welcoming music is played.",
+    "classification": {
+        "causal": true,
+        "confidence": 0.9
+    },
+    "labels": [
+        {"id": "T1", "label": "Keyword", "begin": 0, "end": 2},
+
+        {"id": "T2", "label": "Cause1", "begin": 3, "end": 32},
+        {"id": "T3", "label": "Variable", "begin": 3, "end": 11},
+        {"id": "T4", "label": "Condition", "begin": 12, "end": 32},
+        
+        {"id": "T6", "label": "Cause2", "begin": 34, "end": 67},
+        {"id": "T7", "label": "Variable", "begin": 34, "end": 42},
+        {"id": "T8", "label": "Negation", "begin": 43, "end": 59},
+        {"id": "T9", "label": "Condition", "begin": 60, "end": 67},
+        
+        {"id": "T10", "label": "Conjunction", "begin": 69, "end": 72},
+
+        {"id": "T11", "label": "Cause3", "begin": 73, "end": 100},
+        {"id": "T12", "label": "Negation", "begin": 73, "end": 75},
+        {"id": "T13", "label": "Variable", "begin": 76, "end": 82},
+        {"id": "T14", "label": "Condition", "begin": 83, "end": 100},
+        
+        {"id": "T15", "label": "Keyword", "begin": 102, "end": 106},
+
+        {"id": "T16", "label": "Effect1", "begin": 107, "end": 121},
+        {"id": "T17", "label": "Variable", "begin": 107, "end": 115},
+        {"id": "T18", "label": "Condition", "begin": 116, "end": 121},
+
+        {"id": "T19", "label": "Conjunction", "begin": 122, "end": 125},
+        
+        {"id": "T20", "label": "Effect2", "begin": 126, "end": 151},
+        {"id": "T21", "label": "Variable", "begin": 126, "end": 141},
+        {"id": "T22", "label": "Condition", "begin": 142, "end": 151}
+    ],
+    "graph": {
+        "nodes": [
+            {"id": 1, "variable": "the user", "condition": "is over 18 years old"},
+            {"id": 2, "variable": "the door", "condition": "blocked"},
+            {"id": 3, "variable": "defect", "condition": "could be detected"},
+            {"id": 4, "variable": "", "condition": "", "type": "AND"},
+            {"id": 5, "variable": "the door", "condition": "opens"},
+            {"id": 6, "variable": "welcoming music", "condition": "is played"}
+        ],
+        "edges": [
+            {"source": 1, "target": 4, "negate": false},
+            {"source": 2, "target": 4, "negate": true},
+            {"source": 3, "target": 4, "negate": true},
+            {"source": 4, "target": 5, "negate": false},
+            {"source": 4, "target": 6, "negate": false}
+        ]
+    },
+    "testsuite": {
+        "inputparams": [
+            {"id": 1, "text": "the user"},
+            {"id": 2, "text": "the door"},
+            {"id": 3, "text": "defect"}
+        ],
+        "outputparams": [
+            {"id": 4, "text": "the door"},
+            {"id": 5, "text": "welcoming music"}
+        ],
+        "testcases": [
+            {
+                "id": 1, 
+                "configurations": [{"inputid": 1, "text": "is over 18 years old"}, {"inputid": 2, "text": "not blocked"}, {"inputid": 3, "text": "not could be detected"}],
+                "outcome": [{"outputid": 4, "text": "opens"}, {"outputid": 5, "text": "is played"}]
+            }, {
+                "id": 2, 
+                "configurations": [{"inputid": 1, "text": "not is over 18 years old"}, {"inputid": 2, "text": "not blocked"}, {"inputid": 3, "text": "not could be detected"}],
+                "outcome": [{"outputid": 4, "text": "not opens"}, {"outputid": 5, "text": "not is played"}]
+            }, {
+                "id": 3, 
+                "configurations": [{"inputid": 1, "text": "is over 18 years old"}, {"inputid": 2, "text": "blocked"}, {"inputid": 3, "text": "not could be detected"}],
+                "outcome": [{"outputid": 4, "text": "not opens"}, {"outputid": 5, "text": "not is played"}]
+            }, {
+                "id": 4, 
+                "configurations": [{"inputid": 1, "text": "is over 18 years old"}, {"inputid": 2, "text": "not blocked"}, {"inputid": 3, "text": "could be detected"}],
+                "outcome": [{"outputid": 4, "text": "not opens"}, {"outputid": 5, "text": "not is played"}]
+            }
+        ]
+    }
+}

@@ -1,0 +1,100 @@
+{
+    "text": "Facility owners, tenants, building managers should be supported in measurement and visualisation of the interior conditions to understand the resources consumption and their effects on wellbeing.",
+    "classification": {
+        "causal": true,
+        "confidence": 0.9
+    },
+    "labels": [
+        {"id": "T1", "label": "Cause1", "begin": 0, "end": 15},
+        {"id": "T2", "label": "Variable", "begin": 0, "end": 15},
+
+        {"id": "T3", "label": "Cause2", "begin": 17, "end": 24},
+        {"id": "T4", "label": "Variable", "begin": 17, "end": 24},
+        
+        {"id": "T5", "label": "Cause3", "begin": 26, "end": 78},
+        {"id": "T6", "label": "Variable", "begin": 26, "end": 43},
+        {"id": "T7", "label": "Condition", "begin": 44, "end": 78},
+
+        {"id": "T8", "label": "Conjunction", "begin": 79, "end": 82},
+        
+        {"id": "T9", "label": "Cause4", "begin": 83, "end": 123},
+        {"id": "T10", "label": "Condition", "begin": 83, "end": 123},
+        
+        {"id": "T14", "label": "Effect1", "begin": 124, "end": 163},
+        {"id": "T15", "label": "Condition", "begin": 124, "end": 137},
+        {"id": "T16", "label": "Variable", "begin": 138, "end": 163},
+
+        {"id": "T17", "label": "Conjunction", "begin": 164, "end": 167},
+
+        {"id": "T18", "label": "Effect2", "begin": 168, "end": 194},
+        {"id": "T19", "label": "Condition", "begin": 168, "end": 194}
+    ],
+    "graph": {
+        "nodes": [
+            {"id": 1, "variable": "Facility owners", "condition": "should be supported in measurement"},
+            {"id": 2, "variable": "Facility owners", "condition": "visualisation of the interior conditions"},
+            {"id": 3, "variable": "tenants", "condition": "should be supported in measurement"},
+            {"id": 4, "variable": "tenants", "condition": "visualisation of the interior conditions"},
+            {"id": 5, "variable": "building managers", "condition": "should be supported in measurement"},
+            {"id": 6, "variable": "building managers", "condition": "visualisation of the interior conditions"},
+            {"id": 7, "variable": "", "condition": "", "type": "AND"},
+            {"id": 8, "variable": "the resources consumption", "condition": "to understand"},
+            {"id": 9, "variable": "their effects on wellbeing", "condition": "to understand"}
+        ],
+        "edges": [
+            {"source": 1, "target": 7, "negate": false},
+            {"source": 2, "target": 7, "negate": false},
+            {"source": 3, "target": 7, "negate": false},
+            {"source": 4, "target": 7, "negate": false},
+            {"source": 5, "target": 7, "negate": false},
+            {"source": 6, "target": 7, "negate": false},
+            {"source": 7, "target": 8, "negate": false},
+            {"source": 7, "target": 9, "negate": false}
+        ]
+    },
+    "testsuite": {
+        "inputparams": [
+            {"id": 1, "text": "Facility owners"},
+            {"id": 2, "text": "Facility owners"},
+            {"id": 3, "text": "tenants"},
+            {"id": 4, "text": "tenants"},
+            {"id": 5, "text": "building managers"},
+            {"id": 6, "text": "building managers"}
+        ],
+        "outputparams": [
+            {"id": 7, "text": "the resources consumption"},
+            {"id": 8, "text": "their effects on wellbeing"}
+        ],
+        "testcases": [
+            {
+                "id": 1, 
+                "configurations": [{"inputid": 1, "text": "should be supported in measurement"}, {"inputid": 2, "text": "visualisation of the interior conditions"}, {"inputid": 3, "text": "should be supported in measurement"}, {"inputid": 4, "text": "visualisation of the interior conditions"}, {"inputid": 5, "text": "should be supported in measurement"}, {"inputid": 6, "text": "visualisation of the interior conditions"} ],
+                "outcome": [{"outputid": 7, "text": "to understand"}, {"outputid": 8, "text": "to understand"}]
+            }, {
+                "id": 2, 
+                "configurations": [{"inputid": 1, "text": "not should be supported in measurement"}, {"inputid": 2, "text": "visualisation of the interior conditions"}, {"inputid": 3, "text": "should be supported in measurement"}, {"inputid": 4, "text": "visualisation of the interior conditions"}, {"inputid": 5, "text": "should be supported in measurement"}, {"inputid": 6, "text": "visualisation of the interior conditions"} ],
+                "outcome": [{"outputid": 7, "text": "not to understand"}, {"outputid": 8, "text": "not to understand"}]
+            }, {
+                "id": 3, 
+                "configurations": [{"inputid": 1, "text": "should be supported in measurement"}, {"inputid": 2, "text": "not visualisation of the interior conditions"}, {"inputid": 3, "text": "should be supported in measurement"}, {"inputid": 4, "text": "visualisation of the interior conditions"}, {"inputid": 5, "text": "should be supported in measurement"}, {"inputid": 6, "text": "visualisation of the interior conditions"} ],
+                "outcome": [{"outputid": 7, "text": "not to understand"}, {"outputid": 8, "text": "not to understand"}]
+            }, {
+                "id": 4, 
+                "configurations": [{"inputid": 1, "text": "should be supported in measurement"}, {"inputid": 2, "text": "visualisation of the interior conditions"}, {"inputid": 3, "text": "not should be supported in measurement"}, {"inputid": 4, "text": "visualisation of the interior conditions"}, {"inputid": 5, "text": "should be supported in measurement"}, {"inputid": 6, "text": "visualisation of the interior conditions"} ],
+                "outcome": [{"outputid": 7, "text": "not to understand"}, {"outputid": 8, "text": "not to understand"}]
+            }, {
+                "id": 5, 
+                "configurations": [{"inputid": 1, "text": "should be supported in measurement"}, {"inputid": 2, "text": "visualisation of the interior conditions"}, {"inputid": 3, "text": "should be supported in measurement"}, {"inputid": 4, "text": "not visualisation of the interior conditions"}, {"inputid": 5, "text": "should be supported in measurement"}, {"inputid": 6, "text": "visualisation of the interior conditions"} ],
+                "outcome": [{"outputid": 7, "text": "not to understand"}, {"outputid": 8, "text": "not to understand"}]
+            }, {
+                "id": 6, 
+                "configurations": [{"inputid": 1, "text": "should be supported in measurement"}, {"inputid": 2, "text": "visualisation of the interior conditions"}, {"inputid": 3, "text": "should be supported in measurement"}, {"inputid": 4, "text": "visualisation of the interior conditions"}, {"inputid": 5, "text": "not should be supported in measurement"}, {"inputid": 6, "text": "visualisation of the interior conditions"} ],
+                "outcome": [{"outputid": 7, "text": "not to understand"}, {"outputid": 8, "text": "not to understand"}]
+            }, {
+                "id": 7, 
+                "configurations": [{"inputid": 1, "text": "should be supported in measurement"}, {"inputid": 2, "text": "visualisation of the interior conditions"}, {"inputid": 3, "text": "should be supported in measurement"}, {"inputid": 4, "text": "visualisation of the interior conditions"}, {"inputid": 5, "text": "should be supported in measurement"}, {"inputid": 6, "text": "not visualisation of the interior conditions"} ],
+                "outcome": [{"outputid": 7, "text": "not to understand"}, {"outputid": 8, "text": "not to understand"}]
+            }
+        ]
+    }
+}
