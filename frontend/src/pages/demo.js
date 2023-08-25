@@ -23,7 +23,7 @@ const Demo = () => {
     return (
         <div>
             <h2>Causality Extraction: Demo</h2>
-            <p>On this page you can explore the automatic, step-wise extraction of cause-effect relations from natural language sentences through our accessible online demo. The code behind this demonstration is open source and publicly available on <a href='https://github.com/JulianFrattini/cira' target="_blank" rel="noreferrer">GitHub</a>.</p>
+            <p>On this page you can explore the automatic, step-wise extraction of cause-effect relations from natural language sentences through our accessible online demo. The code behind this demonstration is open source and publicly available on <a href='https://github.com/JulianFrattini/cira' target="_blank" rel="noreferrer">GitHub</a>. You can also look at some <a href='/examples'>examples</a> for inspiration.</p>
             {
                 responsivecore ?
                 <Core></Core> :
