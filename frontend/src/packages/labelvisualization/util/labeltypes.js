@@ -65,6 +65,12 @@ const labeltypes = [
         "descr": "A disjunction ('or') of two or more events means that at least one event must be true for the dependent event to be true.",
         "color": "#fffb7f",
         "level": "0"
+    }, {
+        "label": "Keyword",
+        "short": "k",
+        "descr": "A keyword is a clear indicator for the causal relation. Keywords are also called cue phrases or markers.",
+        "color": "#7dd600",
+        "level": "0"
     }
 ]
 

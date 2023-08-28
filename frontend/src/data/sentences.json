@@ -8,15 +8,15 @@
             "confidence": 0.9
         },
         "labels": [
-            {"id": "T1", "label": "Keyword", "begin": 0, "end": 4},
+            {"id": "T1", "name": "Keyword", "begin": 0, "end": 4},
     
-            {"id": "T2", "label": "Cause1", "begin": 5, "end": 29},
-            {"id": "T3", "label": "Variable", "begin": 5, "end": 19},
-            {"id": "T4", "label": "Condition", "begin": 20, "end": 29},
+            {"id": "T2", "name": "Cause1", "begin": 5, "end": 29},
+            {"id": "T3", "name": "Variable", "begin": 5, "end": 19},
+            {"id": "T4", "name": "Condition", "begin": 20, "end": 29},
             
-            {"id": "T5", "label": "Effect1", "begin": 30, "end": 51},
-            {"id": "T6", "label": "Variable", "begin": 30, "end": 40},
-            {"id": "T7", "label": "Condition", "begin": 41, "end": 51}
+            {"id": "T5", "name": "Effect1", "begin": 30, "end": 51},
+            {"id": "T6", "name": "Variable", "begin": 30, "end": 40},
+            {"id": "T7", "name": "Condition", "begin": 41, "end": 51}
         ],
         "graph": {
             "desc": "In this very explicit case with only one cause and one effect, the CEG consists of exactly two nodes connected by a normal edge.",
@@ -58,21 +58,21 @@
             "confidence": 0.9
         },
         "labels": [
-            {"id": "T1", "label": "Keyword", "begin": 0, "end": 4},
+            {"id": "T1", "name": "Keyword", "begin": 0, "end": 4},
     
-            {"id": "T2", "label": "Cause1", "begin": 5, "end": 29},
-            {"id": "T3", "label": "Variable", "begin": 5, "end": 19},
-            {"id": "T4", "label": "Condition", "begin": 20, "end": 29},
+            {"id": "T2", "name": "Cause1", "begin": 5, "end": 29},
+            {"id": "T3", "name": "Variable", "begin": 5, "end": 19},
+            {"id": "T4", "name": "Condition", "begin": 20, "end": 29},
     
-            {"id": "T5", "label": "Conjunction", "begin": 30, "end": 33},
+            {"id": "T5", "name": "Conjunction", "begin": 30, "end": 33},
     
-            {"id": "T6", "label": "Cause2", "begin": 34, "end": 49},
-            {"id": "T7", "label": "Variable", "begin": 34, "end": 43},
-            {"id": "T8", "label": "Condition", "begin": 44, "end": 49},
+            {"id": "T6", "name": "Cause2", "begin": 34, "end": 49},
+            {"id": "T7", "name": "Variable", "begin": 34, "end": 43},
+            {"id": "T8", "name": "Condition", "begin": 44, "end": 49},
     
-            {"id": "T9", "label": "Effect1", "begin": 50, "end": 71},
-            {"id": "T10", "label": "Variable", "begin": 50, "end": 60},
-            {"id": "T12", "label": "Condition", "begin": 61, "end": 71}
+            {"id": "T9", "name": "Effect1", "begin": 50, "end": 71},
+            {"id": "T10", "name": "Variable", "begin": 50, "end": 60},
+            {"id": "T12", "name": "Condition", "begin": 61, "end": 71}
         ],
         "graph": {
             "desc": "If two causes and a conjunction between them is detected, then the two cause nodes are connected with an intermediate node representing the conjunction. The conjunction represents that both events must be true in order for the effect to occur.",
