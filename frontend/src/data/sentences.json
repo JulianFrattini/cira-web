@@ -30,7 +30,7 @@
             ]
         },
         "testsuite": {
-            "desc": "Two test cases are generated based on the cause-effect graph: the positive, explicit case that happens, when the cause is true, and the negative, implicit case, that happens when the effect ist false.",
+            "desc": "Two test cases are generated based on the cause-effect graph: the positive, explicit case that happens when the cause is true, and the negative, implicit case that happens when the effect is false.",
             "inputparams": [
                 {"id": 1, "text": "the red button"}
             ],

@@ -1,0 +1,3343 @@
+[
+    {
+        "id": "1",
+        "title": "Single cause, single effect",
+        "text": "When the red button is pushed the system shuts down.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 4
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 5,
+                "end": 29
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 5,
+                "end": 19
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 20,
+                "end": 29
+            },
+            {
+                "id": "T5",
+                "name": "Effect1",
+                "begin": 30,
+                "end": 51
+            },
+            {
+                "id": "T6",
+                "name": "Variable",
+                "begin": 30,
+                "end": 40
+            },
+            {
+                "id": "T7",
+                "name": "Condition",
+                "begin": 41,
+                "end": 51
+            }
+        ],
+        "graph": {
+            "desc": "In this very explicit case with only one cause and one effect, the CEG consists of exactly two nodes connected by a normal edge.",
+            "nodes": [
+                {
+                    "id": "N1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "N2",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                }
+            ],
+            "root": "N1",
+            "edges": [
+                {
+                    "origin": "N1",
+                    "target": "N2",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "Two test cases are generated based on the cause-effect graph: the positive, explicit case that happens when the cause is true, and the negative, implicit case that happens when the effect is false.",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "2",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": true
+                },
+                {
+                    "1": false,
+                    "2": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "1b",
+        "title": "Single cause, single negated effect",
+        "text": "When the green button is pushed the system does not shut down.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 4
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 5,
+                "end": 31
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 5,
+                "end": 21
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 22,
+                "end": 31
+            },
+            {
+                "id": "T5",
+                "name": "Effect1",
+                "begin": 32,
+                "end": 61
+            },
+            {
+                "id": "T6",
+                "name": "Variable",
+                "begin": 32,
+                "end": 42
+            },
+            {
+                "id": "T7",
+                "name": "Negation",
+                "begin": 43,
+                "end": 51
+            },
+            {
+                "id": "T8",
+                "name": "Condition",
+                "begin": 52,
+                "end": 61
+            }
+        ],
+        "graph": {
+            "desc": "If a negation node is contained within an event node, then the edge leading from or to this node is negated (indicated by the dashed line).",
+            "nodes": [
+                {
+                    "id": "N1",
+                    "variable": "the green button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "N2",
+                    "variable": "the system",
+                    "condition": "shut down"
+                }
+            ],
+            "root": "N1",
+            "edges": [
+                {
+                    "origin": "N1",
+                    "target": "N2",
+                    "negated": true
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the green button",
+                    "condition": "is pushed"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "2",
+                    "variable": "the system",
+                    "condition": "shut down"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": false
+                },
+                {
+                    "1": false,
+                    "2": true
+                }
+            ]
+        }
+    },
+    {
+        "id": "1c",
+        "title": "Single negated cause, single negated effect",
+        "text": "When the red button is not pushed the system does not shut down.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 4
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 5,
+                "end": 33
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 5,
+                "end": 19
+            },
+            {
+                "id": "T4",
+                "name": "Negation",
+                "begin": 20,
+                "end": 26
+            },
+            {
+                "id": "T5",
+                "name": "Condition",
+                "begin": 27,
+                "end": 33
+            },
+            {
+                "id": "T6",
+                "name": "Effect1",
+                "begin": 34,
+                "end": 63
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 34,
+                "end": 44
+            },
+            {
+                "id": "T8",
+                "name": "Negation",
+                "begin": 45,
+                "end": 53
+            },
+            {
+                "id": "T9",
+                "name": "Condition",
+                "begin": 54,
+                "end": 63
+            }
+        ],
+        "graph": {
+            "desc": "In this case, both the cause and the effect node in a two-event causality are negated. The two negations cancel each other, hence a regular, positive edge connects the two nodes.",
+            "nodes": [
+                {
+                    "id": "N1",
+                    "variable": "the red button",
+                    "condition": "pushed"
+                },
+                {
+                    "id": "N2",
+                    "variable": "the system",
+                    "condition": "shut down"
+                }
+            ],
+            "root": "N1",
+            "edges": [
+                {
+                    "origin": "N1",
+                    "target": "N2",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "pushed"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "2",
+                    "variable": "the system",
+                    "condition": "shut down"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": true
+                },
+                {
+                    "1": false,
+                    "2": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "2",
+        "title": "Two conjunctive causes, single effect",
+        "text": "When the red button is pushed and the power fails the system shuts down.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 4
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 5,
+                "end": 29
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 5,
+                "end": 19
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 20,
+                "end": 29
+            },
+            {
+                "id": "T5",
+                "name": "Conjunction",
+                "begin": 30,
+                "end": 33
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 34,
+                "end": 49
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 34,
+                "end": 43
+            },
+            {
+                "id": "T8",
+                "name": "Condition",
+                "begin": 44,
+                "end": 49
+            },
+            {
+                "id": "T9",
+                "name": "Effect1",
+                "begin": 50,
+                "end": 71
+            },
+            {
+                "id": "T10",
+                "name": "Variable",
+                "begin": 50,
+                "end": 60
+            },
+            {
+                "id": "T12",
+                "name": "Condition",
+                "begin": 61,
+                "end": 71
+            }
+        ],
+        "graph": {
+            "desc": "If two causes and a conjunction between them is detected, then the two cause nodes are connected with an intermediate node representing the conjunction. The conjunction represents that both events must be true in order for the effect to occur.",
+            "nodes": [
+                {
+                    "id": "N1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "N2",
+                    "variable": "the power",
+                    "condition": "fails"
+                },
+                {
+                    "id": "N3",
+                    "conjunction": true
+                },
+                {
+                    "id": "N4",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                }
+            ],
+            "root": "N3",
+            "edges": [
+                {
+                    "origin": "N1",
+                    "target": "N3",
+                    "negated": false
+                },
+                {
+                    "origin": "N2",
+                    "target": "N3",
+                    "negated": false
+                },
+                {
+                    "origin": "N3",
+                    "target": "N4",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "For this acceptance test, next to the trivial positive test case two negative test cases are created, one for each cause to be responsible for the conjunction to be evaluated to false. It is unnecessary to also test the fourth possible case, where both causes are evaluated to false, as the existing two negative test cases already verify that each cause can be responsible for evaluating the conjunction to false.",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "2",
+                    "variable": "the power",
+                    "condition": "fails"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "3",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": true,
+                    "3": true
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "3",
+        "title": "Two disjunctive causes, single effect",
+        "text": "When the red button is pushed or the power fails the system shuts down.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 4
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 5,
+                "end": 29
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 5,
+                "end": 19
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 20,
+                "end": 29
+            },
+            {
+                "id": "T5",
+                "name": "Disjunction",
+                "begin": 30,
+                "end": 32
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 33,
+                "end": 48
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 33,
+                "end": 42
+            },
+            {
+                "id": "T8",
+                "name": "Condition",
+                "begin": 43,
+                "end": 48
+            },
+            {
+                "id": "T9",
+                "name": "Effect1",
+                "begin": 49,
+                "end": 70
+            },
+            {
+                "id": "T10",
+                "name": "Variable",
+                "begin": 49,
+                "end": 59
+            },
+            {
+                "id": "T12",
+                "name": "Condition",
+                "begin": 60,
+                "end": 70
+            }
+        ],
+        "graph": {
+            "desc": "If two causes and a disjunction between them is detected, then the two cause nodes are connected with an intermediate node representing the disjunction. The disjunction represents that at least one event must be true in order for the effect to occur.",
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "2",
+                    "variable": "the power",
+                    "condition": "fails"
+                },
+                {
+                    "id": "3",
+                    "conjunction": false
+                },
+                {
+                    "id": "4",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                }
+            ],
+            "root": "3",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "3",
+                    "target": "4",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "For this acceptance test, next to the trivial negative test case two positive test cases are created, one for each cause to be responsible for the disjunction to be evaluated to true. It is unnecessary to also test the fourth possible case, where both causes are evaluated to true, as the existing two positive test cases already verify that each cause can be responsible for evaluating the disjunction to true.",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "2",
+                    "variable": "the power",
+                    "condition": "fails"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "3",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                }
+            ],
+            "cases": [
+                {
+                    "1": false,
+                    "2": false,
+                    "3": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": true
+                }
+            ]
+        }
+    },
+    {
+        "id": "4",
+        "title": "Three conjunctive causes, single effect",
+        "text": "If the user is over 18 years old, the current time is during working hours, and the current day is a workday, then the door opens.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 2
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 3,
+                "end": 32
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 3,
+                "end": 11
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 12,
+                "end": 32
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 34,
+                "end": 74
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 34,
+                "end": 50
+            },
+            {
+                "id": "T9",
+                "name": "Condition",
+                "begin": 51,
+                "end": 74
+            },
+            {
+                "id": "T10",
+                "name": "Conjunction",
+                "begin": 76,
+                "end": 79
+            },
+            {
+                "id": "T11",
+                "name": "Cause3",
+                "begin": 80,
+                "end": 108
+            },
+            {
+                "id": "T13",
+                "name": "Variable",
+                "begin": 80,
+                "end": 95
+            },
+            {
+                "id": "T14",
+                "name": "Condition",
+                "begin": 96,
+                "end": 108
+            },
+            {
+                "id": "T15",
+                "name": "Keyword",
+                "begin": 110,
+                "end": 114
+            },
+            {
+                "id": "T16",
+                "name": "Effect1",
+                "begin": 115,
+                "end": 129
+            },
+            {
+                "id": "T17",
+                "name": "Variable",
+                "begin": 115,
+                "end": 123
+            },
+            {
+                "id": "T18",
+                "name": "Condition",
+                "begin": 124,
+                "end": 129
+            }
+        ],
+        "graph": {
+            "desc": "In this case, three cause labels are connected by the same conjunction. The conjunction between Cause1 and Cause2 is implicitly assumed as the connective phrase is usually omitted in natural language.",
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the user",
+                    "condition": "is over 18 years old"
+                },
+                {
+                    "id": "2",
+                    "variable": "the current time",
+                    "condition": "is during working hours"
+                },
+                {
+                    "id": "3",
+                    "variable": "the current day",
+                    "condition": "is a workday"
+                },
+                {
+                    "id": "4",
+                    "conjunction": true
+                },
+                {
+                    "id": "5",
+                    "variable": "the door",
+                    "condition": "opens"
+                }
+            ],
+            "root": "4",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "3",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the user",
+                    "condition": "is over 18 years old"
+                },
+                {
+                    "id": "2",
+                    "variable": "the current time",
+                    "condition": "is during working hours"
+                },
+                {
+                    "id": "3",
+                    "variable": "the current day",
+                    "condition": "is a workday"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "the door",
+                    "condition": "opens"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": true,
+                    "3": true,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": true,
+                    "4": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": true,
+                    "4": false
+                },
+                {
+                    "1": true,
+                    "2": true,
+                    "3": false,
+                    "4": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "5",
+        "title": "Three disjunctive causes, single effect",
+        "text": "If the user is over 18 years old, the current time is during working hours, or the current day is a workday, then the door opens.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 2
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 3,
+                "end": 32
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 3,
+                "end": 11
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 12,
+                "end": 32
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 34,
+                "end": 74
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 34,
+                "end": 50
+            },
+            {
+                "id": "T9",
+                "name": "Condition",
+                "begin": 51,
+                "end": 74
+            },
+            {
+                "id": "T10",
+                "name": "Disjunction",
+                "begin": 76,
+                "end": 78
+            },
+            {
+                "id": "T11",
+                "name": "Cause3",
+                "begin": 79,
+                "end": 107
+            },
+            {
+                "id": "T13",
+                "name": "Variable",
+                "begin": 79,
+                "end": 94
+            },
+            {
+                "id": "T14",
+                "name": "Condition",
+                "begin": 95,
+                "end": 107
+            },
+            {
+                "id": "T15",
+                "name": "Keyword",
+                "begin": 109,
+                "end": 113
+            },
+            {
+                "id": "T16",
+                "name": "Effect1",
+                "begin": 114,
+                "end": 128
+            },
+            {
+                "id": "T17",
+                "name": "Variable",
+                "begin": 114,
+                "end": 122
+            },
+            {
+                "id": "T18",
+                "name": "Condition",
+                "begin": 123,
+                "end": 128
+            }
+        ],
+        "graph": {
+            "desc": "In this case, three cause labels are connected by the same disjunction. The disjunction between Cause1 and Cause2 is implicitly assumed as the connective phrase is usually omitted in natural language.",
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the user",
+                    "condition": "is over 18 years old"
+                },
+                {
+                    "id": "2",
+                    "variable": "the current time",
+                    "condition": "is during working hours"
+                },
+                {
+                    "id": "3",
+                    "variable": "the current day",
+                    "condition": "is a workday"
+                },
+                {
+                    "id": "4",
+                    "conjunction": false
+                },
+                {
+                    "id": "5",
+                    "variable": "the door",
+                    "condition": "opens"
+                }
+            ],
+            "root": "4",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "3",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the user",
+                    "condition": "is over 18 years old"
+                },
+                {
+                    "id": "2",
+                    "variable": "the current time",
+                    "condition": "is during working hours"
+                },
+                {
+                    "id": "3",
+                    "variable": "the current day",
+                    "condition": "is a workday"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "the door",
+                    "condition": "opens"
+                }
+            ],
+            "cases": [
+                {
+                    "1": false,
+                    "2": false,
+                    "3": false,
+                    "4": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": false,
+                    "3": true,
+                    "4": true
+                }
+            ]
+        }
+    },
+    {
+        "id": "6",
+        "title": "Three causes (conjunction + disjunction), single effect",
+        "text": "If var1 is present and var2 is active or var3 is triggered then var4 will be caused.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 2
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 3,
+                "end": 18
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 3,
+                "end": 7
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 8,
+                "end": 18
+            },
+            {
+                "id": "T5",
+                "name": "Conjunction",
+                "begin": 19,
+                "end": 22
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 23,
+                "end": 37
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 23,
+                "end": 27
+            },
+            {
+                "id": "T8",
+                "name": "Condition",
+                "begin": 28,
+                "end": 37
+            },
+            {
+                "id": "T9",
+                "name": "Disjunction",
+                "begin": 38,
+                "end": 40
+            },
+            {
+                "id": "T10",
+                "name": "Cause3",
+                "begin": 41,
+                "end": 58
+            },
+            {
+                "id": "T11",
+                "name": "Variable",
+                "begin": 41,
+                "end": 45
+            },
+            {
+                "id": "T12",
+                "name": "Condition",
+                "begin": 46,
+                "end": 58
+            },
+            {
+                "id": "T13",
+                "name": "Keyword",
+                "begin": 59,
+                "end": 63
+            },
+            {
+                "id": "T14",
+                "name": "Effect1",
+                "begin": 64,
+                "end": 83
+            },
+            {
+                "id": "T15",
+                "name": "Variable",
+                "begin": 64,
+                "end": 68
+            },
+            {
+                "id": "T16",
+                "name": "Condition",
+                "begin": 69,
+                "end": 83
+            }
+        ],
+        "graph": {
+            "desc": "In a case, where three causes are connected by both conjunctions and disjunctions, they are interpreted as logical ANDs and ORs, where the logical AND has a higher precedence than the logical OR. Hence, the logical AND is binding stronger.",
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "var1",
+                    "condition": "is present"
+                },
+                {
+                    "id": "2",
+                    "variable": "var2",
+                    "condition": "is active"
+                },
+                {
+                    "id": "3",
+                    "conjunction": true
+                },
+                {
+                    "id": "4",
+                    "variable": "var3",
+                    "condition": "is triggered"
+                },
+                {
+                    "id": "5",
+                    "conjunction": false
+                },
+                {
+                    "id": "6",
+                    "variable": "var4",
+                    "condition": "will be caused"
+                }
+            ],
+            "root": "5",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "3",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "5",
+                    "target": "6",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "For each of the two possible expected results (the effect being evaluated to true and to false), the relevant number of test cases is generated: in the positive case, the final causal node (in this case the final intermediate node representing the disjunction with an OR) has to be evaluated to true. Evaluating a disjunction to true entails creating one test case for each node contained in the disjunction to true, while the others are false. Hence, one test case is created where the intermediate node representing the conjunction with an AND is evaluated to true and the 'var3'' node to false - and the other way around. The test case creation rules are then cascaded for the second test case, where the 'var3' node is evaluated to true and consequently the conjunction is evaluated to false, for which again two distinct options exist. Therefore, three positive test cases are created.",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "var1",
+                    "condition": "is present"
+                },
+                {
+                    "id": "2",
+                    "variable": "var2",
+                    "condition": "is active"
+                },
+                {
+                    "id": "3",
+                    "variable": "var3",
+                    "condition": "is triggered"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "var4",
+                    "condition": "will be caused"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": true,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": true,
+                    "4": true
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": true,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": false,
+                    "4": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false,
+                    "4": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "6b",
+        "title": "Three causes (conjunction + disjunction), two effects",
+        "text": "If var1 is present and var2 is active or var3 is triggered then var4 will be caused and var5 will not be caused.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 2
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 3,
+                "end": 18
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 3,
+                "end": 7
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 8,
+                "end": 18
+            },
+            {
+                "id": "T5",
+                "name": "Conjunction",
+                "begin": 19,
+                "end": 22
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 23,
+                "end": 37
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 23,
+                "end": 27
+            },
+            {
+                "id": "T8",
+                "name": "Condition",
+                "begin": 28,
+                "end": 37
+            },
+            {
+                "id": "T9",
+                "name": "Disjunction",
+                "begin": 38,
+                "end": 40
+            },
+            {
+                "id": "T10",
+                "name": "Cause3",
+                "begin": 41,
+                "end": 58
+            },
+            {
+                "id": "T11",
+                "name": "Variable",
+                "begin": 41,
+                "end": 45
+            },
+            {
+                "id": "T12",
+                "name": "Condition",
+                "begin": 46,
+                "end": 58
+            },
+            {
+                "id": "T13",
+                "name": "Keyword",
+                "begin": 59,
+                "end": 63
+            },
+            {
+                "id": "T14",
+                "name": "Effect1",
+                "begin": 64,
+                "end": 83
+            },
+            {
+                "id": "T15",
+                "name": "Variable",
+                "begin": 64,
+                "end": 68
+            },
+            {
+                "id": "T16",
+                "name": "Condition",
+                "begin": 69,
+                "end": 83
+            },
+            {
+                "id": "T17",
+                "name": "Conjunction",
+                "begin": 84,
+                "end": 87
+            },
+            {
+                "id": "T18",
+                "name": "Effect2",
+                "begin": 88,
+                "end": 111
+            },
+            {
+                "id": "T19",
+                "name": "Variable",
+                "begin": 88,
+                "end": 92
+            },
+            {
+                "id": "T20",
+                "name": "Negation",
+                "begin": 93,
+                "end": 101
+            },
+            {
+                "id": "T21",
+                "name": "Condition",
+                "begin": 102,
+                "end": 111
+            }
+        ],
+        "graph": {
+            "desc": "In a case, where three causes are connected by both conjunctions and disjunctions, they are interpreted as logical ANDs and ORs, where the logical AND has a higher precedence than the logical OR. Hence, the logical AND is binding stronger.",
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "var1",
+                    "condition": "is present"
+                },
+                {
+                    "id": "2",
+                    "variable": "var2",
+                    "condition": "is active"
+                },
+                {
+                    "id": "3",
+                    "conjunction": true
+                },
+                {
+                    "id": "4",
+                    "variable": "var3",
+                    "condition": "is triggered"
+                },
+                {
+                    "id": "5",
+                    "conjunction": false
+                },
+                {
+                    "id": "6",
+                    "variable": "var4",
+                    "condition": "will be caused"
+                },
+                {
+                    "id": "7",
+                    "variable": "var5",
+                    "condition": "be caused"
+                }
+            ],
+            "root": "5",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "3",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "5",
+                    "target": "6",
+                    "negated": false
+                },
+                {
+                    "origin": "5",
+                    "target": "7",
+                    "negated": true
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "var1",
+                    "condition": "is present"
+                },
+                {
+                    "id": "2",
+                    "variable": "var2",
+                    "condition": "is active"
+                },
+                {
+                    "id": "3",
+                    "variable": "var3",
+                    "condition": "is triggered"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "var4",
+                    "condition": "will be caused"
+                },
+                {
+                    "id": "5",
+                    "variable": "var5",
+                    "condition": "be caused"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": true,
+                    "3": false,
+                    "4": true,
+                    "5": false
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": true,
+                    "4": true,
+                    "5": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": true,
+                    "4": true,
+                    "5": false
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": false,
+                    "4": false,
+                    "5": true
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false,
+                    "4": false,
+                    "5": true
+                }
+            ]
+        }
+    },
+    {
+        "id": "7",
+        "title": "Three causes (conjunction + disjunction), single effect",
+        "text": "If var1 is present or var2 is active and var3 is triggered then var4 will be caused.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 2
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 3,
+                "end": 18
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 3,
+                "end": 7
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 8,
+                "end": 18
+            },
+            {
+                "id": "T5",
+                "name": "Disjunction",
+                "begin": 19,
+                "end": 21
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 22,
+                "end": 36
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 22,
+                "end": 26
+            },
+            {
+                "id": "T8",
+                "name": "Condition",
+                "begin": 27,
+                "end": 36
+            },
+            {
+                "id": "T9",
+                "name": "Conjunction",
+                "begin": 37,
+                "end": 40
+            },
+            {
+                "id": "T10",
+                "name": "Cause3",
+                "begin": 41,
+                "end": 58
+            },
+            {
+                "id": "T11",
+                "name": "Variable",
+                "begin": 41,
+                "end": 45
+            },
+            {
+                "id": "T12",
+                "name": "Condition",
+                "begin": 46,
+                "end": 58
+            },
+            {
+                "id": "T13",
+                "name": "Keyword",
+                "begin": 59,
+                "end": 63
+            },
+            {
+                "id": "T14",
+                "name": "Effect1",
+                "begin": 64,
+                "end": 83
+            },
+            {
+                "id": "T15",
+                "name": "Variable",
+                "begin": 64,
+                "end": 68
+            },
+            {
+                "id": "T16",
+                "name": "Condition",
+                "begin": 69,
+                "end": 83
+            }
+        ],
+        "graph": {
+            "desc": "Despite the disjunction ('or') appearing before the conjunction ('and'), the conjunction has a higher precedence similar to logics. Hence, Cause2 and Cause3 are more strongly connected than Cause1 and Cause2.",
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "var2",
+                    "condition": "is active"
+                },
+                {
+                    "id": "2",
+                    "variable": "var3",
+                    "condition": "is triggered"
+                },
+                {
+                    "id": "3",
+                    "conjunction": true
+                },
+                {
+                    "id": "4",
+                    "variable": "var1",
+                    "condition": "is present"
+                },
+                {
+                    "id": "5",
+                    "conjunction": false
+                },
+                {
+                    "id": "6",
+                    "variable": "var4",
+                    "condition": "will be caused"
+                }
+            ],
+            "root": "5",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "3",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "5",
+                    "target": "6",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "var1",
+                    "condition": "is present"
+                },
+                {
+                    "id": "2",
+                    "variable": "var2",
+                    "condition": "is active"
+                },
+                {
+                    "id": "3",
+                    "variable": "var3",
+                    "condition": "is triggered"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "var4",
+                    "condition": "will be caused"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": false,
+                    "3": true,
+                    "4": true
+                },
+                {
+                    "1": true,
+                    "2": true,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": true,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": false,
+                    "3": true,
+                    "4": false
+                },
+                {
+                    "1": false,
+                    "2": false,
+                    "3": true,
+                    "4": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "8",
+        "title": "Single cause, two effects",
+        "text": "When the red button is pushed the system shuts down and energy is saved.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 4
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 5,
+                "end": 29
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 5,
+                "end": 19
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 20,
+                "end": 29
+            },
+            {
+                "id": "T5",
+                "name": "Effect1",
+                "begin": 30,
+                "end": 51
+            },
+            {
+                "id": "T6",
+                "name": "Variable",
+                "begin": 30,
+                "end": 40
+            },
+            {
+                "id": "T7",
+                "name": "Condition",
+                "begin": 41,
+                "end": 51
+            },
+            {
+                "id": "T8",
+                "name": "Conjunction",
+                "begin": 52,
+                "end": 55
+            },
+            {
+                "id": "T9",
+                "name": "Effect2",
+                "begin": 56,
+                "end": 71
+            },
+            {
+                "id": "T10",
+                "name": "Variable",
+                "begin": 56,
+                "end": 62
+            },
+            {
+                "id": "T11",
+                "name": "Condition",
+                "begin": 63,
+                "end": 71
+            }
+        ],
+        "graph": {
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "2",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                },
+                {
+                    "id": "3",
+                    "variable": "energy",
+                    "condition": "is saved"
+                }
+            ],
+            "root": "1",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "2",
+                    "negated": false
+                },
+                {
+                    "origin": "1",
+                    "target": "3",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "2",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                },
+                {
+                    "id": "3",
+                    "variable": "energy",
+                    "condition": "is saved"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": true,
+                    "3": true
+                },
+                {
+                    "1": false,
+                    "2": false,
+                    "3": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "10",
+        "title": "Two conjunctive, exceptive causes, single effect",
+        "text": "Unless the red button is pushed and the power fails the system continues to operate.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 6
+            },
+            {
+                "id": "T2",
+                "name": "Negation",
+                "begin": 0,
+                "end": 6
+            },
+            {
+                "id": "T3",
+                "name": "Cause1",
+                "begin": 7,
+                "end": 31
+            },
+            {
+                "id": "T4",
+                "name": "Variable",
+                "begin": 7,
+                "end": 21
+            },
+            {
+                "id": "T5",
+                "name": "Condition",
+                "begin": 22,
+                "end": 31
+            },
+            {
+                "id": "T6",
+                "name": "Conjunction",
+                "begin": 32,
+                "end": 35
+            },
+            {
+                "id": "T7",
+                "name": "Cause2",
+                "begin": 36,
+                "end": 51
+            },
+            {
+                "id": "T8",
+                "name": "Variable",
+                "begin": 36,
+                "end": 45
+            },
+            {
+                "id": "T9",
+                "name": "Condition",
+                "begin": 46,
+                "end": 51
+            },
+            {
+                "id": "T10",
+                "name": "Effect1",
+                "begin": 52,
+                "end": 83
+            },
+            {
+                "id": "T11",
+                "name": "Variable",
+                "begin": 52,
+                "end": 62
+            },
+            {
+                "id": "T12",
+                "name": "Condition",
+                "begin": 63,
+                "end": 83
+            }
+        ],
+        "graph": {
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "2",
+                    "variable": "the power",
+                    "condition": "fails"
+                },
+                {
+                    "id": "3",
+                    "conjunction": true
+                },
+                {
+                    "id": "4",
+                    "variable": "the system",
+                    "condition": "continues to operate"
+                }
+            ],
+            "root": "3",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "3",
+                    "negated": true
+                },
+                {
+                    "origin": "2",
+                    "target": "3",
+                    "negated": true
+                },
+                {
+                    "origin": "3",
+                    "target": "4",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "2",
+                    "variable": "the power",
+                    "condition": "fails"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "3",
+                    "variable": "the system",
+                    "condition": "continues to operate"
+                }
+            ],
+            "cases": [
+                {
+                    "1": false,
+                    "2": false,
+                    "3": true
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "11",
+        "title": "Three exceptive causes (conjunction + disjunction), single effect",
+        "text": "Unless the director gives the orders and the red button is pressed or the power fails then the system remains active.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 6
+            },
+            {
+                "id": "T2",
+                "name": "Negation",
+                "begin": 0,
+                "end": 6
+            },
+            {
+                "id": "T3",
+                "name": "Cause1",
+                "begin": 7,
+                "end": 36
+            },
+            {
+                "id": "T4",
+                "name": "Variable",
+                "begin": 7,
+                "end": 19
+            },
+            {
+                "id": "T5",
+                "name": "Condition",
+                "begin": 20,
+                "end": 36
+            },
+            {
+                "id": "T6",
+                "name": "Conjunction",
+                "begin": 37,
+                "end": 40
+            },
+            {
+                "id": "T7",
+                "name": "Cause2",
+                "begin": 41,
+                "end": 66
+            },
+            {
+                "id": "T8",
+                "name": "Variable",
+                "begin": 41,
+                "end": 55
+            },
+            {
+                "id": "T9",
+                "name": "Condition",
+                "begin": 56,
+                "end": 66
+            },
+            {
+                "id": "T10",
+                "name": "Disjunction",
+                "begin": 67,
+                "end": 69
+            },
+            {
+                "id": "T11",
+                "name": "Cause3",
+                "begin": 70,
+                "end": 85
+            },
+            {
+                "id": "T12",
+                "name": "Variable",
+                "begin": 70,
+                "end": 79
+            },
+            {
+                "id": "T13",
+                "name": "Condition",
+                "begin": 80,
+                "end": 85
+            },
+            {
+                "id": "T14",
+                "name": "Keyword",
+                "begin": 86,
+                "end": 90
+            },
+            {
+                "id": "T15",
+                "name": "Effect1",
+                "begin": 91,
+                "end": 116
+            },
+            {
+                "id": "T16",
+                "name": "Variable",
+                "begin": 91,
+                "end": 101
+            },
+            {
+                "id": "T17",
+                "name": "Condition",
+                "begin": 102,
+                "end": 116
+            }
+        ],
+        "graph": {
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the director",
+                    "condition": "gives the orders"
+                },
+                {
+                    "id": "2",
+                    "variable": "the red button",
+                    "condition": "is pressed"
+                },
+                {
+                    "id": "3",
+                    "conjunction": true
+                },
+                {
+                    "id": "4",
+                    "variable": "the power",
+                    "condition": "fails"
+                },
+                {
+                    "id": "5",
+                    "conjunction": false
+                },
+                {
+                    "id": "6",
+                    "variable": "the system",
+                    "condition": "remains active"
+                }
+            ],
+            "root": "5",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "3",
+                    "negated": true
+                },
+                {
+                    "origin": "2",
+                    "target": "3",
+                    "negated": true
+                },
+                {
+                    "origin": "3",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "5",
+                    "target": "6",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the director",
+                    "condition": "gives the orders"
+                },
+                {
+                    "id": "2",
+                    "variable": "the red button",
+                    "condition": "is pressed"
+                },
+                {
+                    "id": "3",
+                    "variable": "the power",
+                    "condition": "fails"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "the system",
+                    "condition": "remains active"
+                }
+            ],
+            "cases": [
+                {
+                    "1": false,
+                    "2": true,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": true,
+                    "2": true,
+                    "3": false,
+                    "4": false
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": true,
+                    "4": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": true,
+                    "4": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "12",
+        "title": "Two disjunctive causes, two effects",
+        "text": "When the red button is pushed or the power fails the interface does not accept further inputs and the system shuts down.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 4
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 5,
+                "end": 29
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 5,
+                "end": 19
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 20,
+                "end": 29
+            },
+            {
+                "id": "T5",
+                "name": "Disjunction",
+                "begin": 30,
+                "end": 32
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 33,
+                "end": 48
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 33,
+                "end": 42
+            },
+            {
+                "id": "T8",
+                "name": "Condition",
+                "begin": 43,
+                "end": 48
+            },
+            {
+                "id": "T9",
+                "name": "Effect1",
+                "begin": 49,
+                "end": 93
+            },
+            {
+                "id": "T10",
+                "name": "Variable",
+                "begin": 49,
+                "end": 62
+            },
+            {
+                "id": "T11",
+                "name": "Negation",
+                "begin": 63,
+                "end": 71
+            },
+            {
+                "id": "T12",
+                "name": "Condition",
+                "begin": 72,
+                "end": 93
+            },
+            {
+                "id": "T13",
+                "name": "Conjunction",
+                "begin": 94,
+                "end": 97
+            },
+            {
+                "id": "T14",
+                "name": "Effect2",
+                "begin": 98,
+                "end": 119
+            },
+            {
+                "id": "T15",
+                "name": "Variable",
+                "begin": 98,
+                "end": 108
+            },
+            {
+                "id": "T16",
+                "name": "Condition",
+                "begin": 109,
+                "end": 119
+            }
+        ],
+        "graph": {
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "2",
+                    "variable": "the power",
+                    "condition": "fails"
+                },
+                {
+                    "id": "3",
+                    "conjunction": false
+                },
+                {
+                    "id": "4",
+                    "variable": "the interface",
+                    "condition": "accept further inputs"
+                },
+                {
+                    "id": "5",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                }
+            ],
+            "root": "3",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "3",
+                    "negated": false
+                },
+                {
+                    "origin": "3",
+                    "target": "4",
+                    "negated": true
+                },
+                {
+                    "origin": "3",
+                    "target": "5",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the red button",
+                    "condition": "is pushed"
+                },
+                {
+                    "id": "2",
+                    "variable": "the power",
+                    "condition": "fails"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "3",
+                    "variable": "the interface",
+                    "condition": "accept further inputs"
+                },
+                {
+                    "id": "4",
+                    "variable": "the system",
+                    "condition": "shuts down"
+                }
+            ],
+            "cases": [
+                {
+                    "1": false,
+                    "2": false,
+                    "3": true,
+                    "4": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": false,
+                    "4": true
+                }
+            ]
+        }
+    },
+    {
+        "id": "13",
+        "title": "Three conjunctive causes, two effects",
+        "text": "If the user is over 18 years old, the door is currently not blocked, and no defect could be detected, then the door opens and welcoming music is played.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 2
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 3,
+                "end": 32
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 3,
+                "end": 11
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 12,
+                "end": 32
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 34,
+                "end": 67
+            },
+            {
+                "id": "T7",
+                "name": "Variable",
+                "begin": 34,
+                "end": 42
+            },
+            {
+                "id": "T8",
+                "name": "Negation",
+                "begin": 43,
+                "end": 59
+            },
+            {
+                "id": "T9",
+                "name": "Condition",
+                "begin": 60,
+                "end": 67
+            },
+            {
+                "id": "T10",
+                "name": "Conjunction",
+                "begin": 69,
+                "end": 72
+            },
+            {
+                "id": "T11",
+                "name": "Cause3",
+                "begin": 73,
+                "end": 100
+            },
+            {
+                "id": "T12",
+                "name": "Negation",
+                "begin": 73,
+                "end": 75
+            },
+            {
+                "id": "T13",
+                "name": "Variable",
+                "begin": 76,
+                "end": 82
+            },
+            {
+                "id": "T14",
+                "name": "Condition",
+                "begin": 83,
+                "end": 100
+            },
+            {
+                "id": "T15",
+                "name": "Keyword",
+                "begin": 102,
+                "end": 106
+            },
+            {
+                "id": "T16",
+                "name": "Effect1",
+                "begin": 107,
+                "end": 121
+            },
+            {
+                "id": "T17",
+                "name": "Variable",
+                "begin": 107,
+                "end": 115
+            },
+            {
+                "id": "T18",
+                "name": "Condition",
+                "begin": 116,
+                "end": 121
+            },
+            {
+                "id": "T19",
+                "name": "Conjunction",
+                "begin": 122,
+                "end": 125
+            },
+            {
+                "id": "T20",
+                "name": "Effect2",
+                "begin": 126,
+                "end": 151
+            },
+            {
+                "id": "T21",
+                "name": "Variable",
+                "begin": 126,
+                "end": 141
+            },
+            {
+                "id": "T22",
+                "name": "Condition",
+                "begin": 142,
+                "end": 151
+            }
+        ],
+        "graph": {
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the user",
+                    "condition": "is over 18 years old"
+                },
+                {
+                    "id": "2",
+                    "variable": "the door",
+                    "condition": "blocked"
+                },
+                {
+                    "id": "3",
+                    "variable": "defect",
+                    "condition": "could be detected"
+                },
+                {
+                    "id": "4",
+                    "conjunction": true
+                },
+                {
+                    "id": "5",
+                    "variable": "the door",
+                    "condition": "opens"
+                },
+                {
+                    "id": "6",
+                    "variable": "welcoming music",
+                    "condition": "is played"
+                }
+            ],
+            "root": "4",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "4",
+                    "negated": true
+                },
+                {
+                    "origin": "3",
+                    "target": "4",
+                    "negated": true
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "6",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the user",
+                    "condition": "is over 18 years old"
+                },
+                {
+                    "id": "2",
+                    "variable": "the door",
+                    "condition": "blocked"
+                },
+                {
+                    "id": "3",
+                    "variable": "defect",
+                    "condition": "could be detected"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "the door",
+                    "condition": "opens"
+                },
+                {
+                    "id": "5",
+                    "variable": "welcoming music",
+                    "condition": "is played"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false,
+                    "4": true,
+                    "5": true
+                },
+                {
+                    "1": false,
+                    "2": false,
+                    "3": false,
+                    "4": false,
+                    "5": false
+                },
+                {
+                    "1": true,
+                    "2": true,
+                    "3": false,
+                    "4": false,
+                    "5": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": true,
+                    "4": false,
+                    "5": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "14",
+        "title": "Three disjunctive causes with implicit variables, two effects with implicit conditions",
+        "text": "Where it is impractical to substantially eliminate or reduce the hazard or where the condition of the hazard indicates additional emphasis, special operating procedures and training will be used.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Keyword",
+                "begin": 0,
+                "end": 5
+            },
+            {
+                "id": "T2",
+                "name": "Cause1",
+                "begin": 6,
+                "end": 50
+            },
+            {
+                "id": "T3",
+                "name": "Variable",
+                "begin": 6,
+                "end": 8
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 9,
+                "end": 50
+            },
+            {
+                "id": "T5",
+                "name": "Disjunction",
+                "begin": 51,
+                "end": 53
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 54,
+                "end": 71
+            },
+            {
+                "id": "T7",
+                "name": "Condition",
+                "begin": 54,
+                "end": 71
+            },
+            {
+                "id": "T8",
+                "name": "Disjunction",
+                "begin": 72,
+                "end": 74
+            },
+            {
+                "id": "T9",
+                "name": "Keyword",
+                "begin": 75,
+                "end": 80
+            },
+            {
+                "id": "T10",
+                "name": "Cause3",
+                "begin": 81,
+                "end": 138
+            },
+            {
+                "id": "T11",
+                "name": "Variable",
+                "begin": 81,
+                "end": 108
+            },
+            {
+                "id": "T12",
+                "name": "Condition",
+                "begin": 109,
+                "end": 138
+            },
+            {
+                "id": "T13",
+                "name": "Effect1",
+                "begin": 140,
+                "end": 168
+            },
+            {
+                "id": "T14",
+                "name": "Variable",
+                "begin": 140,
+                "end": 168
+            },
+            {
+                "id": "T15",
+                "name": "Conjunction",
+                "begin": 169,
+                "end": 172
+            },
+            {
+                "id": "T16",
+                "name": "Effect2",
+                "begin": 173,
+                "end": 194
+            },
+            {
+                "id": "T17",
+                "name": "Variable",
+                "begin": 173,
+                "end": 181
+            },
+            {
+                "id": "T18",
+                "name": "Condition",
+                "begin": 182,
+                "end": 194
+            }
+        ],
+        "graph": {
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "it",
+                    "condition": "is impractical to substantially eliminate"
+                },
+                {
+                    "id": "2",
+                    "variable": "it",
+                    "condition": "reduce the hazard"
+                },
+                {
+                    "id": "3",
+                    "variable": "the condition of the hazard",
+                    "condition": "indicates additional emphasis"
+                },
+                {
+                    "id": "4",
+                    "conjunction": false
+                },
+                {
+                    "id": "5",
+                    "variable": "special operating procedures",
+                    "condition": "will be used"
+                },
+                {
+                    "id": "6",
+                    "variable": "training",
+                    "condition": "will be used"
+                }
+            ],
+            "root": "4",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "3",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "6",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "it",
+                    "condition": "is impractical to substantially eliminate"
+                },
+                {
+                    "id": "2",
+                    "variable": "it",
+                    "condition": "reduce the hazard"
+                },
+                {
+                    "id": "3",
+                    "variable": "the condition of the hazard",
+                    "condition": "indicates additional emphasis"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "special operating procedures",
+                    "condition": "will be used"
+                },
+                {
+                    "id": "5",
+                    "variable": "training",
+                    "condition": "will be used"
+                }
+            ],
+            "cases": [
+                {
+                    "1": false,
+                    "2": false,
+                    "3": false,
+                    "4": false,
+                    "5": false
+                },
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false,
+                    "4": true,
+                    "5": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": false,
+                    "4": true,
+                    "5": true
+                },
+                {
+                    "1": false,
+                    "2": false,
+                    "3": true,
+                    "4": true,
+                    "5": true
+                }
+            ]
+        }
+    },
+    {
+        "id": "16",
+        "title": "Single cause in relative clause, single effect",
+        "text": "Users which are older than 18 years, are allowed to drive.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Cause1",
+                "begin": 0,
+                "end": 5
+            },
+            {
+                "id": "T2",
+                "name": "Variable",
+                "begin": 0,
+                "end": 5
+            },
+            {
+                "id": "T3",
+                "name": "Cause1",
+                "begin": 12,
+                "end": 35
+            },
+            {
+                "id": "T4",
+                "name": "Condition",
+                "begin": 12,
+                "end": 35
+            },
+            {
+                "id": "T5",
+                "name": "Effect1",
+                "begin": 37,
+                "end": 57
+            },
+            {
+                "id": "T6",
+                "name": "Condition",
+                "begin": 37,
+                "end": 57
+            }
+        ],
+        "graph": {
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "Users",
+                    "condition": "are older than 18 years"
+                },
+                {
+                    "id": "2",
+                    "variable": "Users",
+                    "condition": "are allowed to drive"
+                }
+            ],
+            "root": "1",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "2",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "Users",
+                    "condition": "are older than 18 years"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "2",
+                    "variable": "Users",
+                    "condition": "are allowed to drive"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": true
+                },
+                {
+                    "1": false,
+                    "2": false
+                }
+            ]
+        }
+    },
+    {
+        "id": "17",
+        "title": "Three causes (conjunction + disjunction) with overruled precedence, single effect",
+        "text": "When the applicant can present an identity card and either is not underage or can present a parent's permission, then an account can be opened with the bank.",
+        "classification": {
+            "causal": true,
+            "confidence": 0.9
+        },
+        "labels": [
+            {
+                "id": "T1",
+                "name": "Cause1",
+                "begin": 5,
+                "end": 47
+            },
+            {
+                "id": "T2",
+                "name": "Variable",
+                "begin": 5,
+                "end": 18
+            },
+            {
+                "id": "T3",
+                "name": "Condition",
+                "begin": 19,
+                "end": 47
+            },
+            {
+                "id": "T4",
+                "name": "Conjunction",
+                "begin": 48,
+                "end": 51
+            },
+            {
+                "id": "T5",
+                "name": "Disjunction",
+                "begin": 52,
+                "end": 58
+            },
+            {
+                "id": "T6",
+                "name": "Cause2",
+                "begin": 59,
+                "end": 74
+            },
+            {
+                "id": "T7",
+                "name": "Negation",
+                "begin": 59,
+                "end": 65
+            },
+            {
+                "id": "T8",
+                "name": "Condition",
+                "begin": 66,
+                "end": 74
+            },
+            {
+                "id": "T9",
+                "name": "Disjunction",
+                "begin": 75,
+                "end": 77
+            },
+            {
+                "id": "T10",
+                "name": "Cause3",
+                "begin": 78,
+                "end": 111
+            },
+            {
+                "id": "T11",
+                "name": "Condition",
+                "begin": 78,
+                "end": 111
+            },
+            {
+                "id": "T12",
+                "name": "Effect1",
+                "begin": 118,
+                "end": 156
+            },
+            {
+                "id": "T13",
+                "name": "Variable",
+                "begin": 118,
+                "end": 128
+            },
+            {
+                "id": "T14",
+                "name": "Condition",
+                "begin": 129,
+                "end": 156
+            }
+        ],
+        "graph": {
+            "nodes": [
+                {
+                    "id": "1",
+                    "variable": "the applicant",
+                    "condition": "can present an identity card"
+                },
+                {
+                    "id": "2",
+                    "variable": "the applicant",
+                    "condition": "underage"
+                },
+                {
+                    "id": "3",
+                    "variable": "the applicant",
+                    "condition": "can present a parent's permission"
+                },
+                {
+                    "id": "4",
+                    "conjunction": false
+                },
+                {
+                    "id": "5",
+                    "conjunction": true
+                },
+                {
+                    "id": "6",
+                    "variable": "an account",
+                    "condition": "can be opened with the bank"
+                }
+            ],
+            "root": "5",
+            "edges": [
+                {
+                    "origin": "1",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "2",
+                    "target": "4",
+                    "negated": true
+                },
+                {
+                    "origin": "3",
+                    "target": "4",
+                    "negated": false
+                },
+                {
+                    "origin": "4",
+                    "target": "5",
+                    "negated": false
+                },
+                {
+                    "origin": "5",
+                    "target": "6",
+                    "negated": false
+                }
+            ]
+        },
+        "testsuite": {
+            "desc": "",
+            "conditions": [
+                {
+                    "id": "1",
+                    "variable": "the applicant",
+                    "condition": "can present an identity card"
+                },
+                {
+                    "id": "2",
+                    "variable": "the applicant",
+                    "condition": "underage"
+                },
+                {
+                    "id": "3",
+                    "variable": "the applicant",
+                    "condition": "can present a parent's permission"
+                }
+            ],
+            "expected": [
+                {
+                    "id": "4",
+                    "variable": "an account",
+                    "condition": "can be opened with the bank"
+                }
+            ],
+            "cases": [
+                {
+                    "1": true,
+                    "2": false,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": true,
+                    "2": true,
+                    "3": true,
+                    "4": true
+                },
+                {
+                    "1": true,
+                    "2": true,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": false,
+                    "3": false,
+                    "4": true
+                },
+                {
+                    "1": false,
+                    "2": true,
+                    "3": true,
+                    "4": true
+                }
+            ]
+        }
+    }
+]
