@@ -27,7 +27,7 @@ const Demo = () => {
             {
                 responsivecore ?
                 <Core></Core> :
-                <p>The CiRA Core is currently not available. You can find a self-hostable version of the CiRA UI <a href='https://github.com/JulianFrattini/cira-ui' target="_blank" rel="noreferrer">on GitHub</a>.</p>
+                <p>The CiRA Core is currently not available. You can find a self-hostable version of the CiRA UI <a href='https://github.com/JulianFrattini/cira-ui' target="_blank" rel="noreferrer">on GitHub</a> or explore some <a href='/examples'>static examples</a>.</p>
             }
             
         </div>

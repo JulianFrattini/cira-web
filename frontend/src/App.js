@@ -5,7 +5,7 @@ import './App.css';
 import Headline from './components/headline';
 import Navbar from './components/navbar';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages';
 //import About from './pages/about';
 import Demo from './pages/demo';
@@ -23,6 +23,8 @@ function App() {
                     <Route path='/demo' element={<Demo />} />
                     <Route path='/examples' element={<Examples />} />
                     <Route path='/references' element={<References />} />
+                    
+                    <Route path='/bert' element={<Navigate replace to='/demo'/>} />
                 </Routes>
             </Router>
         </div>
