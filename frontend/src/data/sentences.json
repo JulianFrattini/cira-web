@@ -648,6 +648,7 @@
             {"id": "T16", "name": "Condition", "begin": 69, "end": 83}
         ],
         "graph": {
+            "desc": "Despite the disjunction ('or') appearing before the conjunction ('and'), the conjunction has a higher precedence similar to logics. Hence, Cause2 and Cause3 are more strongly connected than Cause1 and Cause2.",
             "nodes": [
                 {"id": "1", "variable": "var2", "condition": "is active"},
                 {"id": "2", "variable": "var3", "condition": "is triggered"},
@@ -725,13 +726,14 @@
         ],
         "graph": {
             "nodes": [
-                {"id": 1, "variable": "the red button", "condition": "is pushed"},
-                {"id": 2, "variable": "the system", "condition": "shuts down"},
-                {"id": 3, "variable": "energy", "condition": "is saved"}
+                {"id": "1", "variable": "the red button", "condition": "is pushed"},
+                {"id": "2", "variable": "the system", "condition": "shuts down"},
+                {"id": "3", "variable": "energy", "condition": "is saved"}
             ],
+            "root": "1",
             "edges": [
-                {"origin": 1, "target": 2, "negated": false},
-                {"origin": 1, "target": 3, "negated": false}
+                {"origin": "1", "target": "2", "negated": false},
+                {"origin": "1", "target": "3", "negated": false}
             ]
         },
         "testsuite": {
@@ -782,15 +784,16 @@
         ],
         "graph": {
             "nodes": [
-                {"id": 1, "variable": "the red button", "condition": "is pushed"},
-                {"id": 2, "variable": "the power", "condition": "fails"},
-                {"id": 3, "conjunction": true},
-                {"id": 4, "variable": "the system", "condition": "continues to operate"}
+                {"id": "1", "variable": "the red button", "condition": "is pushed"},
+                {"id": "2", "variable": "the power", "condition": "fails"},
+                {"id": "3", "conjunction": true},
+                {"id": "4", "variable": "the system", "condition": "continues to operate"}
             ],
+            "root": "3",
             "edges": [
-                {"origin": 1, "target": 3, "negated": true},
-                {"origin": 2, "target": 3, "negated": true},
-                {"origin": 3, "target": 4, "negated": false}
+                {"origin": "1", "target": "3", "negated": true},
+                {"origin": "2", "target": "3", "negated": true},
+                {"origin": "3", "target": "4", "negated": false}
             ]
         },
         "testsuite": {
@@ -853,19 +856,20 @@
         ],
         "graph": {
             "nodes": [
-                {"id": 1, "variable": "the director", "condition": "gives the orders"},
-                {"id": 2, "variable": "the red button", "condition": "is pressed"},
-                {"id": 3, "conjunction": true},
-                {"id": 4, "variable": "the power", "condition": "fails"},
-                {"id": 5, "conjunction": false},
-                {"id": 6, "variable": "the system", "condition": "remains active"}
+                {"id": "1", "variable": "the director", "condition": "gives the orders"},
+                {"id": "2", "variable": "the red button", "condition": "is pressed"},
+                {"id": "3", "conjunction": true},
+                {"id": "4", "variable": "the power", "condition": "fails"},
+                {"id": "5", "conjunction": false},
+                {"id": "6", "variable": "the system", "condition": "remains active"}
             ],
+            "root": "5",
             "edges": [
-                {"origin": 1, "target": 3, "negated": true},
-                {"origin": 2, "target": 3, "negated": true},
-                {"origin": 3, "target": 5, "negated": false},
-                {"origin": 4, "target": 5, "negated": false},
-                {"origin": 5, "target": 6, "negated": false}
+                {"origin": "1", "target": "3", "negated": true},
+                {"origin": "2", "target": "3", "negated": true},
+                {"origin": "3", "target": "5", "negated": false},
+                {"origin": "4", "target": "5", "negated": false},
+                {"origin": "5", "target": "6", "negated": false}
             ]
         },
         "testsuite": {
@@ -935,17 +939,18 @@
         ],
         "graph": {
             "nodes": [
-                {"id": 1, "variable": "the red button", "condition": "is pushed"},
-                {"id": 2, "variable": "the power", "condition": "fails"},
-                {"id": 3, "conjunction": false},
-                {"id": 4, "variable": "the interface", "condition": "accept further inputs"},
-                {"id": 5, "variable": "the system", "condition": "shuts down"}
+                {"id": "1", "variable": "the red button", "condition": "is pushed"},
+                {"id": "2", "variable": "the power", "condition": "fails"},
+                {"id": "3", "conjunction": false},
+                {"id": "4", "variable": "the interface", "condition": "accept further inputs"},
+                {"id": "5", "variable": "the system", "condition": "shuts down"}
             ],
+            "root": "3",
             "edges": [
-                {"origin": 1, "target": 3, "negated": false},
-                {"origin": 2, "target": 3, "negated": false},
-                {"origin": 3, "target": 4, "negated": true},
-                {"origin": 3, "target": 5, "negated": false}
+                {"origin": "1", "target": "3", "negated": false},
+                {"origin": "2", "target": "3", "negated": false},
+                {"origin": "3", "target": "4", "negated": true},
+                {"origin": "3", "target": "5", "negated": false}
             ]
         },
         "testsuite": {
@@ -1014,19 +1019,20 @@
         ],
         "graph": {
             "nodes": [
-                {"id": 1, "variable": "the user", "condition": "is over 18 years old"},
-                {"id": 2, "variable": "the door", "condition": "blocked"},
-                {"id": 3, "variable": "defect", "condition": "could be detected"},
-                {"id": 4, "conjunction": true},
-                {"id": 5, "variable": "the door", "condition": "opens"},
-                {"id": 6, "variable": "welcoming music", "condition": "is played"}
+                {"id": "1", "variable": "the user", "condition": "is over 18 years old"},
+                {"id": "2", "variable": "the door", "condition": "blocked"},
+                {"id": "3", "variable": "defect", "condition": "could be detected"},
+                {"id": "4", "conjunction": true},
+                {"id": "5", "variable": "the door", "condition": "opens"},
+                {"id": "6", "variable": "welcoming music", "condition": "is played"}
             ],
+            "root": "4",
             "edges": [
-                {"origin": 1, "target": 4, "negated": false},
-                {"origin": 2, "target": 4, "negated": true},
-                {"origin": 3, "target": 4, "negated": true},
-                {"origin": 4, "target": 5, "negated": false},
-                {"origin": 4, "target": 6, "negated": false}
+                {"origin": "1", "target": "4", "negated": false},
+                {"origin": "2", "target": "4", "negated": true},
+                {"origin": "3", "target": "4", "negated": true},
+                {"origin": "4", "target": "5", "negated": false},
+                {"origin": "4", "target": "6", "negated": false}
             ]
         },
         "testsuite": {
@@ -1098,19 +1104,20 @@
         ],
         "graph": {
             "nodes": [
-                {"id": 1, "variable": "it", "condition": "is impractical to substantially eliminate"},
-                {"id": 2, "variable": "it", "condition": "reduce the hazard"},
-                {"id": 3, "variable": "the condition of the hazard", "condition": "indicates additional emphasis"},
-                {"id": 4, "conjunction": false},
-                {"id": 5, "variable": "special operating procedures", "condition": "will be used"},
-                {"id": 6, "variable": "training", "condition": "will be used"}
+                {"id": "1", "variable": "it", "condition": "is impractical to substantially eliminate"},
+                {"id": "2", "variable": "it", "condition": "reduce the hazard"},
+                {"id": "3", "variable": "the condition of the hazard", "condition": "indicates additional emphasis"},
+                {"id": "4", "conjunction": false},
+                {"id": "5", "variable": "special operating procedures", "condition": "will be used"},
+                {"id": "6", "variable": "training", "condition": "will be used"}
             ],
+            "root": "4",
             "edges": [
-                {"origin": 1, "target": 4, "negated": false},
-                {"origin": 2, "target": 4, "negated": false},
-                {"origin": 3, "target": 4, "negated": false},
-                {"origin": 4, "target": 5, "negated": false},
-                {"origin": 4, "target": 6, "negated": false}
+                {"origin": "1", "target": "4", "negated": false},
+                {"origin": "2", "target": "4", "negated": false},
+                {"origin": "3", "target": "4", "negated": false},
+                {"origin": "4", "target": "5", "negated": false},
+                {"origin": "4", "target": "6", "negated": false}
             ]
         },
         "testsuite": {
@@ -1163,11 +1170,12 @@
         ],
         "graph": {
             "nodes": [
-                {"id": 1, "variable": "Users", "condition": "are older than 18 years"},
-                {"id": 2, "variable": "Users", "condition": "are allowed to drive"}
+                {"id": "1", "variable": "Users", "condition": "are older than 18 years"},
+                {"id": "2", "variable": "Users", "condition": "are allowed to drive"}
             ],
+            "root": "1",
             "edges": [
-                {"origin": 1, "target": 2, "negated": false}
+                {"origin": "1", "target": "2", "negated": false}
             ]
         },
         "testsuite": {
@@ -1220,19 +1228,20 @@
         ],
         "graph": {
             "nodes": [
-                {"id": 1, "variable": "the applicant", "condition": "can present an identity card"},
-                {"id": 2, "variable": "the applicant", "condition": "underage"},
-                {"id": 3, "variable": "the applicant", "condition": "can present a parent's permission"},
-                {"id": 4, "conjunction": false},
-                {"id": 5, "conjunction": true},
-                {"id": 6, "variable": "an account", "condition": "can be opened with the bank"}
+                {"id": "1", "variable": "the applicant", "condition": "can present an identity card"},
+                {"id": "2", "variable": "the applicant", "condition": "underage"},
+                {"id": "3", "variable": "the applicant", "condition": "can present a parent's permission"},
+                {"id": "4", "conjunction": false},
+                {"id": "5", "conjunction": true},
+                {"id": "6", "variable": "an account", "condition": "can be opened with the bank"}
             ],
+            "root": "5",
             "edges": [
-                {"origin": 1, "target": 5, "negated": false},
-                {"origin": 2, "target": 4, "negated": true},
-                {"origin": 3, "target": 4, "negated": false},
-                {"origin": 4, "target": 5, "negated": false},
-                {"origin": 5, "target": 6, "negated": false}
+                {"origin": "1", "target": "5", "negated": false},
+                {"origin": "2", "target": "4", "negated": true},
+                {"origin": "3", "target": "4", "negated": false},
+                {"origin": "4", "target": "5", "negated": false},
+                {"origin": "5", "target": "6", "negated": false}
             ]
         },
         "testsuite": {
