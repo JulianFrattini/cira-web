@@ -2,11 +2,11 @@ import React from 'react';
 
 import './App.css';
 
-import Headline from './components/headline';
-import Navbar from './components/navbar';
+import Headline from './components/headline/index';
+import Navbar from './components/navbar/index';
 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './pages';
+import Home from './pages/index';
 //import About from './pages/about';
 import Demo from './pages/demo';
 import Examples from './pages/examples';
