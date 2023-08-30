@@ -3,7 +3,7 @@ version: "3.7"
 services:
   frontend:
     build: ./frontend
-    container_name: frontend
+    container_name: webfrontend
     depends_on:
       - core
     environment:
@@ -14,11 +14,11 @@ services:
     command: npm run start
 
   core:
-    container_name: pipeline
+    container_name: webcore
     image: ghcr.io/julianfrattini/cira:0.9.6
     ports:
       - "8000:8000"
 
 networks:
-  cira:
+  cira-web:
     driver: bridge
