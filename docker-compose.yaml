@@ -10,8 +10,11 @@ services:
       - HOST=0.0.0.0
       - PORT=3000
     ports:
-      - "3000:3000"
+      - "3001:3000"
     command: npm run start
+    networks:
+      cira-web:
+        ipv4_address: 172.19.0.3
 
   core:
     container_name: webcore
@@ -22,3 +25,6 @@ services:
 networks:
   cira-web:
     driver: bridge
+    ipam:
+      config:
+      - subnet: 172.19.0.0/16
