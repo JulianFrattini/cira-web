@@ -7,8 +7,9 @@ services:
     depends_on:
       - core
     ports:
-      - "3001:3001"
-    command: npm run start
+      - "3000:3001"
+    environment:
+      - PORT=3001
     networks:
       cira-web:
         ipv4_address: 172.19.0.3
