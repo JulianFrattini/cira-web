@@ -16,7 +16,7 @@ services:
 
   core:
     container_name: webcore
-    image: ghcr.io/julianfrattini/cira:0.9.6
+    image: ghcr.io/julianfrattini/cira:0.9.7
     ports:
       - "8000:8000"
 
