@@ -6,11 +6,8 @@ services:
     container_name: webfrontend
     depends_on:
       - core
-    environment:
-      - HOST=0.0.0.0
-      - PORT=3000
     ports:
-      - "3001:3000"
+      - "3001:3001"
     command: npm run start
     networks:
       cira-web:
