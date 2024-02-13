@@ -78,6 +78,7 @@
         "index": 14,
         "label": "Frattini, J., Fischbach, J., & Bauer, A. (2023, September). CiRA: An  Open-Source Python Package for Automated Generation of Test Case Descriptions from Natural Language Requirements. In 2023 IEEE Tenth International Workshop on Artificial Intelligence for Requirements Engineering (AIRE). IEEE.",
         "demo": "http://www.cira.bth.se/extractor",
-        "repo": "https://zenodo.org/record/8033347"
+        "repo": "https://zenodo.org/record/8033347",
+        "link": "https://doi.org/10.1109/REW57809.2023.00019"
     }
 ]
