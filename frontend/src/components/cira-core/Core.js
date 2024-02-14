@@ -6,7 +6,6 @@ import LabelVisualizer from '../../packages/labelvisualization/LabelVisualizer'
 import CEGVisualizer from '../../packages/graphvisualization/CEGVisualizer'
 import SuiteVisualizer from '../../packages/suitevisualization/SuiteVisualizer'
 
-
 function Core() {
     const [fieldSentence, setFieldSentence] = useState("When the red button is pushed or the power fails the system shuts down.")
     const [sentence, setSentence] = useState("")
@@ -60,7 +59,7 @@ function Core() {
             return;
         }
 
-        fetch('http://localhost:8000/api/classify', {
+        fetch(process.env.REACT_APP_CORE_URL+'/api/classify', {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ "sentence": sentence })
@@ -77,7 +76,7 @@ function Core() {
             return;
         }
 
-        fetch('http://localhost:8000/api/label', {
+        fetch(process.env.REACT_APP_CORE_URL+'/api/label', {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ "sentence": sentence })
@@ -93,7 +92,7 @@ function Core() {
             return;
         }
 
-        fetch('http://localhost:8000/api/graph', {
+        fetch(process.env.REACT_APP_CORE_URL+'/api/graph', {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -112,7 +111,7 @@ function Core() {
             return;
         }
 
-        fetch('http://localhost:8000/api/testsuite', {
+        fetch(process.env.REACT_APP_CORE_URL+'/api/testsuite', {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

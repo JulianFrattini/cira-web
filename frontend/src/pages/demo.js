@@ -7,7 +7,7 @@ const Demo = () => {
 
     // heartbeat
     useEffect(() => {
-        fetch('http://localhost:8000/api/health', {
+        fetch(process.env.REACT_APP_CORE_URL+'/api/health', {
             method: 'get'
         }).then(res => res.json())
             .then(heartbeat => {
