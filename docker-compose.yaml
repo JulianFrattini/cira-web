@@ -2,12 +2,16 @@ version: "3.7"
 
 services:
   frontend:
-    build: ./frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - PORT_FRONTEND=$PORT_FRONTEND
     container_name: webfrontend
     depends_on:
       - core
     ports:
-      - "3000:3001"
+      - "3000:${PORT_FRONTEND}"
     environment:
       - REACT_APP_CORE_URL=http://localhost:8000
       - PORT=3001
