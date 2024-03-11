@@ -14,20 +14,9 @@ services:
       - "3000:${PORT_FRONTEND}"
     environment:
       - REACT_APP_CORE_URL=http://localhost:8000
-      - PORT=3001
-    networks:
-      cira-web:
-        ipv4_address: 172.19.0.3
 
   core:
     container_name: webcore
     image: ghcr.io/julianfrattini/cira:0.9.7
     ports:
       - "8000:8000"
-
-networks:
-  cira-web:
-    driver: bridge
-    ipam:
-      config:
-      - subnet: 172.19.0.0/16
